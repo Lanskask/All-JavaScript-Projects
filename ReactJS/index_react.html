@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>REatc</title>
+	<!-- <script type="text/javascript" src="react.min.js"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser.js"></script>
+</head>
+
+<body>
+	<div id="content"></div>
+
+	<script type="text/babel">
+		var HelloWorld = React.createClass({
+			render: function() {
+				return (
+					<div>
+						<h1> Hello, World!</h1>
+						<h2>
+							This is { this.props.name} 
+							and I love { this.props.action }ing 
+						</h2>
+					</div>
+					
+				);
+			}
+		});
+
+		ReactDOM.render(
+			<div>
+				<HelloWorld name="Katia" action="run"/>
+				<HelloWorld name="Ivan" action="swim"/>
+				<HelloWorld name="Vitia" action="walk"/>
+				<HelloWorld name="Vasia" action="read"/>
+			</div>,
+			document.getElementById('content')
+		);
+
+	</script>
+</body>
+
+</html>

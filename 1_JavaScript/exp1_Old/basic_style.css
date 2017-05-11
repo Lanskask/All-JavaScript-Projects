@@ -1,0 +1,128 @@
+* {
+	padding: 0;
+	margin: 0;
+	/*background: #0E7B82;*/
+	-moz-box-sizing: border-box; /* Для Firefox */
+	-webkit-box-sizing: border-box; /* Для Safari и Chrome */
+	box-sizing: border-box; /* Для IE и Opera */
+	/*max-width: 1080;*/
+}
+
+article, section, aside, hgroup, nav, header, footer, figure, figcaption { 
+    display: block;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+    /*border: 1px solid red;*/
+}
+
+/*-------------------------*/
+header {
+	/*display: block;*/
+	background: #4D4F52;
+	height: 5em;
+	line-height: 5em;
+	
+	border: solid black 2px;
+	text-align: center;
+
+	font-family: arial;
+	/*vertical-align: middle;*/
+	/*position: absolute; */
+	/*margin: auto;*/
+	/*padding: 3em;*/
+	/*height: 7em;  */
+	/*vertical-align: middle;*/
+  	
+}
+
+/*-------------------------*/
+#allBack {
+	background: #080D13;	
+}
+
+.wrap {
+	/*background: #278DBC;*/
+	width: 1080px;
+	/*align-content: center;*/
+	/*align-items: center;*/
+	/*float: center !important;*/
+	margin: 0 auto;
+}
+
+/*-------------------------*/
+	aside {
+	    background: #f0f0f0;
+	    /*padding: 10px;*/
+	    /*width: 200px;*/
+	    float: right !important;
+	    text-align: right;
+    }
+
+    aside li {
+	    list-style-type: none;
+    }
+
+    aside a {
+	    color: black;
+    }
+
+	/*-------------------------*/
+	nav {
+		background: #3A7095;
+		text-align: right;
+		font-weight: bold;
+		font-family: "Courier New", "Lucida Console";
+		/*text-decoration: none;*/
+		/*text-decoration-color: black;*/
+	}
+
+	nav li {
+		display: inline;
+		border: 1px solid #0514A1;
+		margin: 0 2em;
+	}
+
+	nav a {
+		text-decoration: none;
+		color: white;
+	}
+	/*-------------------------*/
+
+
+	#content {
+		/*width: 80%;*/
+		/*height: 100%;*/
+		margin: 0 auto;
+		padding: 2em;
+		background: #80B5FC;
+		border: 10px solid #1C2838;
+	}
+
+/*-------------------------*/
+
+footer {
+	background: #2D343C;
+	height: 1.2em;
+	border: solid black 2px;
+	text-align: right;
+	/*padding: 0 auto;*/
+	
+	line-height: 1.2em;
+	font-weight: bold;
+}

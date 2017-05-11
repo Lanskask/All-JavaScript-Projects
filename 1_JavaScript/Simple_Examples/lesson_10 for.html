@@ -1,0 +1,18 @@
+<meta charset = "utf-8">
+<script>
+
+	// for (var n = 0; n <= 4; n++) {
+	// 	alert(n);
+	// }
+
+	// Программа для расчёта коллическва денег в конуе хранения после определённого колличества лет. 
+	var money = parseInt(prompt("The initial number of your money."));
+	var procent_state = parseInt(prompt("the persent state"));
+	var years = parseInt(prompt("Time to store (years)"));
+
+	for ( var i = 1; i <= years; i++) {
+		money = money + money* procent_state / 100;
+		alert("There are" + Math.floor(money) +", after "+i);
+	}
+
+</script>

@@ -1,0 +1,66 @@
+<html>
+
+<head>
+  <title>калькулятор выплат по ссуде на JavaScript</title>
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+
+<body>
+  <!--Сама форма имеет имя "loandata", а поля в форме – такие имена,
+как "interest" и "years". Эти имена полей используются
+в JavaScript коде, следующем за кодом формы.
+Обратите внимание: для некоторых элементов формы
+определены обработчики событий "onchange" и "onclick".
+В них заданы строки JavaScript кода, выполняемого
+при вводе данных или щелчке на кнопке. -->
+  <form name="loandata">
+    <table>
+      <tr>
+        <td><b>Введите данные о ссуде:</b></td>
+      </tr>
+      <tr>
+        <td>1) Размер ссуды (в любой валюте):</td>
+        <td>
+          <input type="text" name="principal" onchange="calculate();">
+        </td>
+      </tr>
+      <tr>
+        <td>2) Годовой процент:</td>
+        <td>
+          <input type="text" name="interest" onchange="calculate();">
+        </td>
+      </tr>
+      <tr>
+        <td>3) Срок ссуды в годах:</td>
+        <td>
+          <input type="text" name="years" onchange="calculate();">
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <input type="button" value="Рассчитать" onclick="calculat();">
+        </td>
+      </tr>
+      <tr>
+        <td><b>Сведения о платежах:</b></td>
+      </tr>
+      <tr>
+        <td>4) Ежемесячный платеж:</td>
+        <td>$<span class="result" id="payment"></span></td>
+      </tr>
+      <tr>
+        <td>5) Общая сумма платежей:</td>
+        <td>$<span class="result" id="total"></span></td>
+      </tr>
+      <tr>
+        <td>6) Общая сумма платежей по процентам:</td>
+        <td>$<span class="result" id="totalinterest"></span></td>
+      </tr>
+    </table>
+  </form>
+
+  <script src="js/index.js"></script>
+</body>
+
+</html>

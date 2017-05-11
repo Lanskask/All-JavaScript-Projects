@@ -1,0 +1,26 @@
+<meta charset = "utf-8">
+<script>
+	var a = parseInt(prompt('A: '));
+	var b = parseInt(prompt('B: '));
+	var c = parseInt(prompt('C: '));
+
+	if ( isNaN(a) || isNaN(b) || isNaN(c) ) { // isNaN - провекрка на не число
+		alert("You can wright only numbers.");
+	} else {
+		alert("You are right. All your inputs are numbers.");
+	}
+
+	if ( ( ( a>b) && (a<c)) || ((a>c) && (a<b))) {
+		alert('A - между B и C.')
+	}
+
+	if ( ( a > b) && ( a > c )) {
+		alert('A = '+ a +' - больше всех!');
+	} else if ( (b > a) && (b > c) ) {
+		alert('B = '+ b +' - больше всех!');
+	} else if ( (c > a) && (c > b) ) {
+		alert('C = '+ c +' - больше всех!');
+	} else {
+		alert('Все равны! ');
+	}	
+</script>

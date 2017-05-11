@@ -1,0 +1,74 @@
+<meta charset = "utf-8">
+<script>
+
+	var first_body_angle = 70
+	var second_body_angle = 30
+	var throwing_angle = parseInt(prompt('Wright your throwing_angle: '));
+	
+	if ( (first_body_angle-10 < throwing_angle) && (throwing_angle < first_body_angle+10)) {
+		alert("You get the First Ame.");
+		// alert(a_x - 5 +", "+ x +", "+ a_x+5 +", "+ 5 +", "+ "; ")
+		// alert(a_y - 5 +", "+ y +", "+ a_y + 5)
+		// alert(a_x  +", "+ a_y +", "+ x  +", "+ y);
+		// alert(b_x  +", "+ b_y +", "+ x  +", "+ y);
+
+	} else if ( (second_body_angle-10 < throwing_angle) && (second_body_angle < first_body_angle+10) ) {
+		alert("You get the Second Ame.");
+	} else {
+		alert("You MISS.")
+	}
+	
+	// // ---------------------------------------------
+	// // Body A coordinates
+	// var a_x = 45
+	// var a_y = 35
+	// var b_x = 56
+	// var b_y = 75
+
+	// // if ( ( - 5 < 0 <  + 5) &&  ( 5 < 7 <  + 10)) { alert("alert 1 ")};
+	// alert("The first body coordinations: "+a_x+", "+a_y+". ");
+	// alert("The second body coordinations: "+b_x+", "+b_y+". ");
+	// // alert(Math.cos(60/ (180/3.14) ));
+
+	// F = 10
+	// var throwing_angle = parseInt(prompt('Wright your throwing_angle: '));
+	// if ( isNaN(throwing_angle) ) { alert("You can wright only numbers.")};
+
+	// // F_x = 5 // Nuton
+	// // F_y = 4 // Nuton
+	// F_x = F*Math.cos(throwing_angle/ (180/3.14) );
+	// F_y = F*Math.sin(throwing_angle/ (180/3.14) );
+	// alert("F_x = "+F_x+"; F_y = "+F_y);
+	// // alert(Math.sqrt(Math.pow(F_x,2) + Math.pow(F_y,2)));
+	// m = 3 // gramm;
+	// s_0_x = 0; v_0_x = 0; 
+	// s_0_y = 0; v_0_y = 0; 
+	// g = 9.8; 
+
+	// // alert(2^2);
+	// // alert( Math.pow(2,2) );
+	// // s = s_0 + v_08t+a*t**2/2
+	// // x = s_0_x + v_0_x*t+F_y/m*t**2/2;
+	// t = 10;
+	// x = s_0_x + v_0_x*t+F_x/m*Math.pow(t,2)/2;
+	// // t = Math.sqrt( )
+	// y = s_0_y + v_0_y*t+(F_y/m - g)*Math.pow(t,2)/2;
+	// alert("x = "+x+" ; y = "+y+". ")
+
+	// // x = 160; y = -370;
+	// alert("x = "+x+" ; y = "+y+". ")
+	// // if ((a_x - 5 < x < a_x + 5) && (a_y - 5 < y < a_y + 5)) {
+	// if (((a_x - 5 < x) && (x < a_x + 5)) && ((a_y - 5 < y) && (y < a_y + 5))) {
+	// 	alert("You get the First Ame.");
+	// 	// alert(a_x - 5 +", "+ x +", "+ a_x+5 +", "+ 5 +", "+ "; ")
+	// 	// alert(a_y - 5 +", "+ y +", "+ a_y + 5)
+	// 	// alert(a_x  +", "+ a_y +", "+ x  +", "+ y);
+	// 	// alert(b_x  +", "+ b_y +", "+ x  +", "+ y);
+
+	// } else if (((b_x - 5 < x) && (x< b_x + 5)) && ((b_y - 5 < y) && (y < b_y + 5))) {
+	// 	alert("You get the Second Ame.");
+	// } else {
+	// 	alert("You MISS.")
+	// }
+	// // ---------------------------------------------
+</script>

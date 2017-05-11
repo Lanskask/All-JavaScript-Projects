@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Escape Secuanses</title>
+</head>
+<body>
+
+	<p id="esS"></p>
+	<p id="numbers"></p>
+
+	<script>
+		var esS = document.getElementById("esS");
+		esS.innerHTML = "0 \0 b \b t \t n \n v \v f \f r \r";
+
+		var numbers = document.getElementById("numbers");
+		var n = 123456.789;
+
+		console.log( n.toFixed(0) );
+		console.log( n.toFixed(2) );
+		console.log( n.toExponential(1) );
+		console.log( n.toExponential(3) );
+		console.log( n.toPrecision(4) );
+		console.log( n.toPrecision(7) );
+	</script>
+</body>
+</html>

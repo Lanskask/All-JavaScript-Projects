@@ -1,0 +1,11 @@
+/* Это каскадная таблица стилей: с ее помощью определяется внешний вид документа */
+
+.result {
+  font weight: bold;
+}
+/*стиль отображения элементов с class="result"*/
+
+#payment {
+  text decoration: underline;
+}
+/* для элемента с id="payment" */

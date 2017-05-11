@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Angular JS 1</title>
+
+		<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script> -->
+		
+		<script type="text/javascript" src="angular.min.js">
+			var model = "Hello world!";
+
+			var helloWorldApp = angular.module("helloWorldApp", []);
+
+			helloWorldApp.controller(
+				"helloWorldCtrl", function ($scope)) {
+
+			}
+
+		</script>
+	</head>
+
+	<body ng-app>
+
+		<!-- {{ 2 + 2}} 
+
+		<br>
+		<input type="text" name="name">
+		Hello {{ name }} -->
+
+		<br>
+		<input type="checkbox" name="ShowCheck">
+		<div ng-show = "ShowCheck"> 
+			Текст который мы учидим после клика по cchackBox!
+		</div>
+
+	</body>
+
+</html>
