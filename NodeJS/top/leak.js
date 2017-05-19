@@ -34,6 +34,7 @@ function Request() {
 }
 
 setInterval(function () {
+	// heapdump - для анализа данных (использования данных, памяти программы) в Chrome
 	var request = new Request();
 	// ...
 	request.end();
