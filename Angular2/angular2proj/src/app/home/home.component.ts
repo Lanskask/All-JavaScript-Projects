@@ -7,6 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+	homeTitle = "It's a Home Title";
+	myString = "i like someth";
+	myBoolean = true;
+	ninja = {
+		name: "Mayoshy Xo",
+		belt: "red"
+	}
+
+
+	alertMe(val) {
+		alert(val);
+	}
+
   constructor() { }
 
   ngOnInit() {
