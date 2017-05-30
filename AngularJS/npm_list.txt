@@ -1,3 +1,0 @@
-/home/a1/0_Programming/5_JavaScript/AngularJS
-└── (empty)
-

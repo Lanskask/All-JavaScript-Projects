@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Ang By LBVid</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+
+<body>
+
+<div ng-app="">
+  <p>Name: <input type="text" ng-model="name"></p>
+  <p ng-bind="name"></p>
+	{{ 2+2 }}
+	<br/>
+	<input type="checkbox" ng-model="ShowCheck"/>
+	<div ng-show="ShowCheck">Текст чтобы показать</div>
+
+</div>
+
+</body>
+</html>

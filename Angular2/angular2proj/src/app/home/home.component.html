@@ -1,0 +1,33 @@
+<p>
+  home works!
+  again
+</p>
+
+<ng-content></ng-content>
+
+<p>
+	{{homeTitle}}
+</p>
+	
+<p>
+	Ninja's name: 
+	<input [(ngModel)]="ninja.name">
+</p>
+<p>
+	Ninja's belt color: 
+	<input [(ngModel)]="ninja.belt">
+</p>
+
+<p>Ninja {{ninja.name}} has a {{ninja.belt}} belt.</p>
+
+
+<hr/>
+
+<input value="value name text" />
+<input [required]="myBoolean"/> <br/>
+<input [value]="myString"/> <br/>
+<hr/>
+<input value="{{myString}}"/> <br/>
+<input required="{{!myBoolean}}"/> 
+<button (click)="alertMe('alerted fr html')" >Click me</button>
+<hr/>
