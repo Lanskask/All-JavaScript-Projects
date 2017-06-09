@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="App">
+
+<head>
+    <title>factory testing</title>
+    <!-- <script type="text/javascript" src="angular.min.js"></script> -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+</head>
+
+<body>
+    <div>
+        <p> {{1+2}} </p>
+        <div ng-controller="Ctrl1">
+            <input type="text" name="Inp1" ng-model="Factory1.hello"> 
+            Here should be text of Inp2: {{Factory1.hello}} | 
+            <span ng-bind="Factory1.hello"></span>
+			</div>
+			
+			<div ng-controller="Ctrl2">
+				<input type="text" name="Inp2" ng-model="Factory1.hello">
+				Here should be text of Inp2: {{Factory1.hello}} | <span ng-bind="Factory1.hello">
+			</div>
+		</div>
+
+		
+		<script type="text/javascript">
+			var app = angular.module("App", []);
+
+			app.controller("Ctrl1", function($scope, Factory1) {
+				console.log("Ctrl1 Fact.hello: " + Factory1.hello);
+				$scope.Factory1 = Factory1;
+				$scope.hello = "Hello";
+			});
+
+			app.controller("Ctrl2", function($scope, Factory1) {
+				console.log("Ctrl2 Fact.hello: " + Factory1.hello);
+				$scope.Factory1 = Factory1;
+				$scope.hello = "Hello2";
+			});
+
+			app.factory('Factory1', function ($scope) {
+				return {
+					hello: "Hell W in Factory"
+				}
+			});
+		</script>
+	</body>
+</html>
