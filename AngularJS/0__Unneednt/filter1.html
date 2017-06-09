@@ -1,0 +1,41 @@
+<!doctype html>
+<html ng-app>
+
+<head>
+  <script src="http://code.angularjs.org/1.0.6/angular.min.js"></script>
+</head>
+
+<body>
+  <div ng-init="list = ['Chrome', 'Safari', 'Firefox', 'IE'] ">
+    Number formatting: {{ 1234567890 | number }}
+    <br> array filtering
+    <input ng-model="predicate"> {{ list | filter:predicate | json }}
+  </div>
+
+  <script>
+
+		// создание модуля
+		var myModule = angular.module('myModule', [])
+
+		// конфигурация инжектора
+		myModule.factory('serviceA', function() {
+			return {
+				item: {
+					str1: "str1",
+					id: 5,
+				}// вместо {}, задайте здесь свой объект
+			};
+		});
+
+		// создание инжектора и конфигурирование его модулем 'myModule'
+		var $injector = angular.injector(['myModule']);
+		// получение объекта у инжектора по его имени
+		var serviceA = $injector.get('serviceA');
+		console.log(serviceA);
+		// это вернет истину, т.к. экземпляр объекта повторно не создается.
+		console.log($injector.get('serviceA') === $injector.get('serviceA') );
+
+  </script>
+</body>
+
+</html>

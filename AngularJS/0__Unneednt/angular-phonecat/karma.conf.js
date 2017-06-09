@@ -2,8 +2,7 @@
 module.exports = function(config) {
   config.set({
 
-    // basePath: './app',
-    basePath: './loftblog_angular_phonecat_app',
+    basePath: './app',
 
     files: [
       'bower_components/angular/angular.js',
