@@ -6,13 +6,14 @@
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
 	<p  class="black_border">Test before App1</p>
 
 	<div ng-app="App1" class="black_border">
-		<p><b>Befor any Controllers: </b></p>
-
 		<div class="black_border">
+			<p><b>Befor any Controllers: </b></p>
+
 			<input type="text" ng-model="hello.title">
 			<div>Hello.title model is: {{hello.title}}</div>
 		</div>
@@ -22,22 +23,13 @@
 			
 			<input type="text" ng-model="hello.title">
 			<p>Hello.title in Cintroller1 is: {{hello.title}}</p>
-			
-			<!-- For experiments -->
-			<!-- <input type="text" ng-model="title"> -->
-			<!-- <p class="{{data.message1}}">Class of this element is: {{title}}</p> -->
 
-			<!-- <p>
-				Hello Title: {{hello.title}}
-			</p>
-			<p>{{hello.func1()}}</p> -->
 		</div>	
 		
 		<div class="black_border" ng-controller="secondController">
 			<p><b>Second Controller: </b></p>
 			<input type="text" ng-model="hello.title">
 			<p>Hello.title in Cintroller1 is: {{hello.title}}</p>
-			<!-- <p>Func.title in Cintroller1 is: {{hello.func()}}</p> -->
 		</div>
 
 	</div>
