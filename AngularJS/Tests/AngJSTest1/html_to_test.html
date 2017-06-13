@@ -1,6 +1,6 @@
 <!-- html_to_test.html -->
 <!DOCTYPE html>
-<html ng-app='app'>
+<html ng-app="app">
 <head>
 	<title>Html to test</title>
 	<!-- <script type="text/javascript" src="../../angular.min.js"></script> -->
@@ -10,22 +10,26 @@
 <body>
 	<p>Text 1 1 1</p>
 
-	<!-- <div ng-controller="myCtrl">
+	<div ng-controller="myCtrl">
 		<p>Text 2 2 2 </p>
 		{{hello}}
 		{{1 + 2}}
-	</div> -->
 
-	<div w3testdirective>
-		Text 3 3 3 
+		<div w3testdirective>
+			<p>Text 3 3 3</p>
+			<p>Not worcking.</p>
+		</div>
+
+		<div test3>
+			<p>Text of dirrect test3. </p>
+			<p>Not worcking.</p>
+		</div>
 	</div>
 
-	<div test3>
-		Text of dirrect test3
-	</div>
+	
 
 	<script type="text/javascript" src="../../angular.min.js"></script>
-	<!-- <script type="text/javascript" src="test1.controller.js"></script> -->
+	<script type="text/javascript" src="test1.controller.js"></script>
 	<script type="text/javascript" src="w3-test.directive.js"></script>
 	<script type="text/javascript" src="test3.directive.js"></script>
 </body>

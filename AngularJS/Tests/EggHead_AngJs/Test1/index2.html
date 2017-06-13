@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test Scoping 2</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<p  class="black_border">Test before App1</p>
+
+	<div ng-app="App1" class="black_border">
+
+		<div class="black_border">
+			<p><b>Before any Controllers: </b></p>
+			<input type="text" ng-model="hello.title">
+			<div>Hello.title model is: {{hello.title}}</div>
+		</div>
+
+		<div class="black_border" ng-controller="firstCtrl">
+			<p><b>First Controller: </b></p>
+			<input type="text" ng-model="hello.title">
+			<p>Hello.title in Cintroller1 is: {{hello.title}}</p>
+		</div>	
+		
+		<div class="black_border" ng-controller="secondCtrl">
+			<p><b>Second Controller: </b></p>
+			<input type="text" ng-model="hello.title">
+			<p>Hello.title in Cintroller1 is: {{hello.title}}</p>
+		</div>
+
+	</div>
+
+	<!-- =========================== -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+
+	<script type="text/javascript" src="app1.module.js"></script>	
+	<script type="text/javascript" src="app2.controller.js"></script>	
+</body>
+</html>

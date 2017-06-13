@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html lang="en" ng-app>
   <head>
@@ -12,3 +13,95 @@
 
   </body>
 </html>
+=======
+<!doctype html>
+<html lang="en" ng-app="allPageApp">
+  <head>
+    <meta charset="utf-8">
+    <title>My HTML File</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <script src="bower_components/angular/angular.js"></script>
+  </head>
+
+  <body ng-init="name = 'MyName'">
+
+	<hr/>
+	<!-- ng-app="phonecatApp" -->
+	<div class="part-dos" ng-controller="PhoneListCtrl">
+		<h4 ng-bind="title"></h4>
+
+		<input type="text" ng-model="query"/>
+		<ul>
+		    <!-- <li ng-repeat="phone in phones | filter: {name: query, status: true}"> -->
+		    <!-- <li ng-repeat="phone in phones | filter: doneAndFilter"> -->
+		    <!-- <li ng-repeat="phone in filteredPhones = (phones | filter: doneAndFilter)"> -->
+		    <li ng-repeat="phone in phones">
+		    	<span>{{phone.name}}</span>
+		    	<p>{{phone.snippet}}</p>
+		    	<!-- <p>Status: {{phone.status}}</p> -->
+		    	<p>Age: {{phone.age}}</p>
+		    	<p>Priority: {{phone.priority}}</p>
+		    </li>
+		</ul>
+
+		<p>Кол-во выбранных телефонов: {{filteredPhones.length}}</p>
+		<p>Кол-во всех телефонов: <span ng-bind="phones.length"></span></p>
+		<hr/>
+
+		<table>
+			<thead>
+				<tr>
+					<th>
+						<a href="" ng-click="sort('name')">Name
+						<!-- TODO: todo this glyphicon -->
+							<i class="glyphicon" ng-class="{'glyphicon-chevron-up': isSortUp('name'), 
+							'glyphicon-chevron-down': isSortDown('name') }"> </i>
+						</a>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="phone in phones | orderBy: sortField: reverse">
+					<td>{{phone.name}}</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<hr/>
+		
+		<p ng-bind="today | date:dd.MM.yyyy"></p>
+		<p>{{today | date: dd.mm.yyyy }}</p>
+		<p>{{'MyDifferentString' | limitTo: 10 | lowercase}}</p>
+
+		<ul>
+	    <li>1. Currency: {{234 | currency }}</li>
+	    <li>2. Date {{1221455 | date:'dd.MM.yyyy'}}</li>
+	    <li>3. Number: {{123124.677 | number: 3}}</li>
+	    <li>4. Lowercase: {{'ASFASFafasfafASf' | lowercase}}</li>
+	    <li>5. Uppercase: {{'ASFASFafasfafASf' | uppercase}}</li>
+	    <li>6. JSON: <pre>{{
+		    {
+		    	'text':'some text',
+		    	'descr':'description 1'
+		    } | json
+	    }}</pre></li>
+		</ul>
+	</div>
+
+
+	<hr/>
+  <div class="part-uno">
+    <p>Nothing here {{'yet' + '!'}}</p>
+		<p>1 + 8 = {{1 + 8}} </p>
+
+		<!-- ng-init="name = 'World'" -->
+		<div  ng-controller="demoCtrl">
+			<p>Hello <span ng-bind="name"></span></p>
+		</div>
+		<span ng-bind="name"></span>
+	</div>
+
+		<script src="js/controllers.js"></script>
+  </body>
+</html>
+>>>>>>> e659a56c198da52e854d6a86364e21eb7021f232

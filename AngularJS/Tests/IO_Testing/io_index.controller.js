@@ -1,6 +1,6 @@
-app.controller("studentInsertCtrl", function($scope) {
+app.controller("studentInsertCtrl", function($scope) { 
     $scope.hello = {
-        title: "UserName",
+        title: "UserName", 
         funcStr: function() {
             return "To PASTE";
         }

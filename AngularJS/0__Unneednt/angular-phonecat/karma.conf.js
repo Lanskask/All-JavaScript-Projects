@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //jshint strict: false
 module.exports = function(config) {
   config.set({
@@ -27,3 +28,35 @@ module.exports = function(config) {
 
   });
 };
+=======
+//jshint strict: false
+module.exports = function(config) {
+  config.set({
+
+    // basePath: './app',
+    basePath: './loftblog_angular_phonecat_app',
+
+    files: [
+      'bower_components/angular/angular.js',
+      'bower_components/angular-mocks/angular-mocks.js',
+      '**/*.module.js',
+      '*!(.module|.spec).js',
+      '!(bower_components)/**/*!(.module|.spec).js',
+      '**/*.spec.js'
+    ],
+
+    autoWatch: true,
+
+    frameworks: ['jasmine'],
+
+    browsers: ['Chrome', 'Firefox'],
+
+    plugins: [
+      'karma-chrome-launcher',
+      'karma-firefox-launcher',
+      'karma-jasmine'
+    ]
+
+  });
+};
+>>>>>>> e659a56c198da52e854d6a86364e21eb7021f232
