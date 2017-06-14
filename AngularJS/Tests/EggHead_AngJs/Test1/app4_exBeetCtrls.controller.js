@@ -17,6 +17,8 @@ app.controller('firstCtrl', function($scope, Data){
 app.controller('secondCtrl', function ($scope, Data) {
 	$scope.data = Data;
 
+	var arr = new Array("Яблоко", "Груша", "и т.п.");
+
 	$scope.reversedMessage = function () {
 		return $scope.data.message.split("").reverse().join("");
 	}
@@ -24,4 +26,9 @@ app.controller('secondCtrl', function ($scope, Data) {
 	$scope.reversedMessageWithParam = function (message) {
 		return message.split("").reverse().join("");
 	}
+
+	$scope.is_an_array = angular.isArray(arr);
+	console.log($scope.is_an_array);
+	console.log(angular.isArray(arr));
+
 });
