@@ -1,0 +1,13 @@
+Emmet
+html:5>div.container>(nav.navbar.navbar-inverse>div.navbar-header>a.navbar-brand{Crazy Fast}+ul.nav.navbar-nav>li*2>a.menu-${Menu Item $})+(div.jumbotron.text-center>h1{Crazy Fast HTML}+p+a#go-button.btn.btn-danger{Learn More})+(div.row.text-center>(div.col-sm-4>div.info-box>span.glyphicon.glyphicon-fire+h2{Lions}+p)+(div.col-sm-8>div.info-box>span.glyphicon.glyphicon-send+h2{Emmmet}+p))
+---
+
+Emmet with Bootstrap 4 cdn
+{}+html[lang="en"]>(head>meta[charset="utf-8"]+meta[http-equiv="X-UA-Compatible" content="IE=edge"]+meta[name="viewport" content="width=device-width, initial-scale=1"]+title{Bootstrap Emmet Document)}+link[href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet"])+body>(nav.navbar.navbar-fixed-top.navbar-inverse>div.container>(div.navbar-header>button[type="button"].navbar-toggle.collapsed>span.sr-only{Toggle navigation}+span.icon-bar+a[href="#"]{Project name}.navbar-brand)+div#navbar.collapse.navbar-collapse>ul.nav.navbar-nav>(li.active>a{Home}[href="#"])+li*2>a{Menu $}a[href="#menu"])+(div[style="padding: 70px;"]div.container.text-center>h1{Hello World!}+h3{Author: Ahmet NARLI (ahmetisitannarli@gmail.com)})+script[src="https://code.jquery.com/jquery-3.1.1.slim.min.js"]+script[src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"]+script[src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"]
+
+---
+Mien:
+https://webdesign.tutsplus.com/articles/build-bootstrap-in-minutes-using-emmet--webdesign-14585
+
+html:5>header.jumbotron{It is a My Site}+section>article>lorem10*3^+aside>(nav>ul>li*4>a[href=#]{link $})^+footer
+
