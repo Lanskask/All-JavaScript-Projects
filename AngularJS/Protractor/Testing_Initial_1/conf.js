@@ -4,4 +4,5 @@ exports.config = {
   capabilities: {
     browserName: 'firefox'
   }
+  // ignoreUncaughtExceptions: true
 };

@@ -1,0 +1,19 @@
+{
+  "name": "protractor_1",
+  "version": "1.0.0",
+  "description": "testing of protractor",
+  "main": "index.js",
+  "dependencies": {
+    "protractor": "^5.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "test",
+    "protractor"
+  ],
+  "author": "a1",
+  "license": "ISC"
+}

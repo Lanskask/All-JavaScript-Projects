@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Test Scoping 2</title>
+  <meta charset="utf-8">
+  <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css"> -->
+  <link rel="stylesheet" type="text/css" href="../style/style.css">
+  <link rel="stylesheet" type="text/css" href="/home/a1/0_Programming/All-JavaScript-Projects/AngularJS/bootstrap.css">
+</head>
+
+<body>
+  <div ng-app="App1">
+    <div ng-controller="AvengersCtrl">
+      <!-- <input type="text" ng-model="search.name"> -->
+      <input type="text" ng-model="search.$">
+      <table class="table table-bordered">
+        <caption>Avengers Characters and it's names.</caption>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Charecter</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="row in avengers.cast |orderBy:'name' | filter:search">
+            <td>{{row.name}}</td>
+            <td>{{row.character}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+		<button id="color">Кликни меня</button>
+
+<style>
+  #color {
+    transition-property: background-color;
+    transition-duration: 3s;
+  }
+</style>
+
+<script>
+  color.onclick = function() {
+    this.style.backgroundColor = 'red';
+  }
+</script>
+
+    <table>
+    	<caption>AngularJS Filters</caption>
+    	<tbody>
+    		<tr>
+    			<td>orderBy: 'name'</td>
+    			<td>orderBy: '-name'</td>
+    		</tr>
+    		<tr>
+    			<td>limitTo: 5</td>
+    			<td>limitTo: -5</td>
+    		</tr>
+    		<tr>
+    			<td>lowercase</td>
+    			<td>uppercase</td>
+    		</tr>
+    	</tbody>
+    </table>
+  </div>
+  <!-- =========================== -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+  <!-- <script type="text/javascript" src="./../../angular.min.js"></script> -->
+  <script type="text/javascript" src="/home/a1/0_Programming/All-JavaScript-Projects/AngularJS/angular.min.js"></script>
+  <script type="text/javascript" src="D:\Sergey\0_Programming\All-JavaScript-Projects\AngularJS\angular.min.js"></script>
+
+  <script type="text/javascript" src="../js/app1.module.js"></script>
+  <script type="text/javascript" src="../js/app4_filters.controller.js"></script>
+</body>
+
+</html>

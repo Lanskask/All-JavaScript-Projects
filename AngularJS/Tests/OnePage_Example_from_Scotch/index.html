@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- SCROLLS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+    <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" /> -->
+</head>
+<!-- define angular controller -->
+
+<body ng-app="pagesExpApp" ng-controller="mainController">
+
+    <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+      <div class="navbar-brand">
+        <a href="/">Angular Routing Example</a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+
+    <div id="main">
+        <!-- this is where content will be injected -->
+        <div ng-view></div>
+    </div>
+    
+    <div class="container">
+      <footer class="footer text-center">
+          Some footer.
+      </footer>
+    </div>
+
+    <!-- ///// Scripts ///////// -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="app.js"></script>
+    <script type="text/javascript" src="js/main.controller.js"></script>
+    <script src="js/about.controller.js"></script>
+    <script src="js/contact.controller.js"></script>
+</body>
+</html>

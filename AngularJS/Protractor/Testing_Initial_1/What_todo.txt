@@ -1,0 +1,21 @@
+
+webdriver-manager start
+webdriver-manager start --versions.chrome 2.27
+
+protractor conf.js
+
+=============
+
+
+D:\Sergey\0_Programming\All-JavaScript-Projects\AngularJS\IDEA_Project_2\node_modules\protractor\bin\protractor 
+
+
+
+D:\Sergey\0_Programming\All-JavaScript-Projects\AngularJS\IDEA_Project_2\node_modules\protractor\built\cli.js
+
+
+https://www.browserstack.com
+
+grey.wooden.tractor@gmail.com
+WoodenTractor
+8r0u53r_574c
