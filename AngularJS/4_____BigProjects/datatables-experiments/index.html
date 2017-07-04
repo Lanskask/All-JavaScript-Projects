@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Datatables Testing</title>
+</head>
+
+<body>
+	<div ng-app="">
+	    <div ng-controller="WithPromiseCtrl as showCase">
+	    <p>right here should be table</p>
+	    
+	        <table datatable="" 
+	        	dt-options="showCase.dtOptions" 
+	        	dt-columns="showCase.dtColumns" 
+	        	class="row-border hover">
+	        </table>
+	    </div>
+	</div>
+	<!-- /////////////////// -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.15/js/jquery.dataTables.min.js"></script>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+	<!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script> -->
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-datatables/2.1.0/angular-datatables.js"></script>
+	<!-- <link rel="stylesheet" href="angular-datatables.css"> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-data-table/0.7.0/dataTable.min.css">
+
+    <script type="text/javascript">
+    angular.module('showcase.withPromise', ['datatables', 'ngResource']).controller('WithPromiseCtrl', WithPromiseCtrl);
+
+    function WithPromiseCtrl(DTOptionsBuilder, DTColumnBuilder, $http, $q) {
+        var vm = this;
+        vm.dtOptions = DTOptionsBuilder.fromFnPromise(function() {
+            var defer = $q.defer();
+            $http.get('data.json').then(function(result) {
+                defer.resolve(result.data);
+            });
+            return defer.promise;
+        }).withPaginationType('full_numbers');
+
+        vm.dtColumns = [
+            DTColumnBuilder.newColumn('id').withTitle('ID'),
+            DTColumnBuilder.newColumn('firstName').withTitle('First name'),
+            DTColumnBuilder.newColumn('lastName').withTitle('Last name').notVisible()
+        ];
+    }
+    </script>
+</body>
+
+</html>

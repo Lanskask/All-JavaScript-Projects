@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<body>
+	<!-- <div ng-app=""> -->
+	<div ng-app="myApp" ng-controller="myCtrl">
+
+		<p>Name :
+			<input type="text" ng-model="name">
+		</p>
+		<h1>Hello {{name}}</h1>
+	<!-- </div> -->
+	<!-- <div ng-app="myApp" ng-controller="myCtrl"> -->
+	<hr/>
+		First Name:
+		<input type="text" ng-model="firstName">
+		<br> Last Name:
+		<input type="text" ng-model="lastName">
+		<br>
+		<br> Full Name: {{firstName + " " + lastName + "2"}}
+	<hr/>
+
+		<!-- Not working -->
+		<!-- <ng-include src="'myTable.html'" scope="" onload="">
+			Some text
+		</ng-include> -->
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script type="text/javascript" src="myCtrl/index.js"></script>
+</body>
+
+</html>
