@@ -1,0 +1,9 @@
+{
+  "name": "sgTry_angMaterial",
+  "version": "0.4.0",
+  "description": "My try of angular mat with bower.json and so on as it needed to be done",
+  "dependencies": {
+    "angular": "~1.3",
+    "angular-material": "0.7.1"
+  }
+}
