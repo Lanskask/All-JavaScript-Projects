@@ -9,7 +9,6 @@ import { DemoModule }   from './demo/demo.module';
   declarations: [ AppComponent ],
   bootstrap:    [ AppComponent ]
 })
-
 export class AppModule { }
 
 

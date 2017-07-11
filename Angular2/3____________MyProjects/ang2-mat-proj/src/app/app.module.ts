@@ -8,6 +8,7 @@ import { MaterialModule } from '@angular/material';
 import { AppComponent } from './app.component';
 
 import { DataTableModule } from 'angular2-datatable';
+
 import 'hammerjs';
 
 @NgModule({
