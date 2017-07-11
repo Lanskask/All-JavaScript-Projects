@@ -6,8 +6,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var hero_service_1 = require("./hero.service");
-var heroes_component_1 = require("./heroes.component");
 var AppComponent = (function () {
     function AppComponent() {
         this.title = "Tour of Heroes";
@@ -17,9 +15,7 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "<h1>{{title}}</h1>\n\t\t\t\t<nav>\n\t\t\t\t\t<a routerLink=\"/\">Home</a>\n\t\t\t\t\t<a routerLink=\"/dashboard\">Dashboard</a>\n\t\t\t\t\t<a routerLink=\"/heroes\">Heroes</a>\n\t\t\t\t</nav>\n\t\t\t\t<router-outlet></router-outlet>",
-        directives: [heroes_component_1.HeroesComponent],
-        providers: [hero_service_1.HeroService],
+        templateUrl: 'app.component.html',
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;
