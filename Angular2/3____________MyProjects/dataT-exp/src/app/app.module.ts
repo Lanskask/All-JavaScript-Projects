@@ -7,17 +7,16 @@ import { A2DtModule } from './a2dt/a2dt.module';
 import { NgxDtComponent } from './ngx-dt/ngx-dt.component';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    A2DtModule,
-    // A2DtComponent
-  ],
   providers: [],
   bootstrap: [AppComponent],
   declarations: [
     AppComponent,
-    NgxDtComponent,
-    A2DtComponent
+    // NgxDtComponent,
+  ],
+  imports: [
+    BrowserModule,
+    // A2DtModule,
+    // A2DtComponent
   ],
 })
 export class AppModule { }

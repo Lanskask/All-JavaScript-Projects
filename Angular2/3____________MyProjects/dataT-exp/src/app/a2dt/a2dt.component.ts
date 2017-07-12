@@ -23,17 +23,21 @@ export class A2DtComponent implements OnInit {
     private url2 = 'http://192.168.0.29:8810/webAppExample/rest/webAppExampleService/beOrder';
 
     ngOnInit(): void {
-        this._http.get(this.url1)
-            .subscribe((data) => {
-                // this.data = data.json().dsOrder.ttOrder;
-                // this.data = data._body.dsOrder.ttOrder;
-                this.allDsBorder = data.json();
-                // this.ttOrders = this.allDsBorder.dsOrder.ttOrder;
-                this.data = this.allDsBorder.dsOrder.ttOrder;
-            });
+        // this.getViaHttpGet();
 
-            this.printResults();
+        // this.printResults();
     }
+
+    // getViaHttpGet() {
+    //     this._http.get(this.url1)
+    //         .subscribe((data) => {
+    //             // this.data = data.json().dsOrder.ttOrder;
+    //             // this.data = data._body.dsOrder.ttOrder;
+    //             this.allDsBorder = data.json();
+    //             // this.ttOrders = this.allDsBorder.dsOrder.ttOrder;
+    //             this.data = this.allDsBorder.dsOrder.ttOrder;
+    //         });
+    // }
 
     printResults(): void {
         console.log("data: " + this.data);

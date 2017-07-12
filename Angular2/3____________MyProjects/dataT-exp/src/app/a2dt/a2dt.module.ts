@@ -5,12 +5,12 @@ import { A2DtComponent } from './a2dt.component';
 
 @NgModule({
     imports: [
-        DataTableModule, 
+        DataTableModule,
         A2DtComponent
     ],
     exports: [],
     providers: [
-        A2DtComponent
+        // A2DtComponent
     ],
     declarations: [A2DtComponent]
 })
