@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
+var http_1 = require("@angular/http");
 var app_component_1 = require("./app.component");
 var hero_detail_component_1 = require("./hero-detail.component");
 var heroes_component_1 = require("./heroes.component");
@@ -24,7 +25,8 @@ AppModule = __decorate([
         imports: [
             platform_browser_1.BrowserModule,
             forms_1.FormsModule,
-            app_routing_module_1.AppRoutingModule
+            app_routing_module_1.AppRoutingModule,
+            http_1.HttpModule
         ],
         declarations: [
             app_component_1.AppComponent,
