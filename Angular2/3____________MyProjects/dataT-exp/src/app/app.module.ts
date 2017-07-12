@@ -17,7 +17,7 @@ import { NgxDtComponent } from './ngx-dt/ngx-dt.component';
   declarations: [
     AppComponent,
     NgxDtComponent,
-    A2DtComponent
+    // A2DtComponent
   ],
 })
 export class AppModule { }
