@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 
+import { BeCheckaService } from './be-checka.service';
+
 @Component({
     selector: 'a2dt',
     templateUrl: './a2dt.component.html',
@@ -8,16 +10,19 @@ import { Http } from '@angular/http';
 export class A2DtComponent implements OnInit { 
     public data;
     public filterQuery;
-    public rowOnpage;
+    public rowsOnPage;
     public sortBy = "email";
     public sortOrder = "asc";
 
     // --
-    public allDsBorder: any;
+    public allDsOrders: any;
     public ttOrders: any;
     // --
 
-    constructor(private _http: Http) { }
+    constructor(
+        private _http: Http, 
+        private _beCheckaService: BeCheckaService,
+    ) { }
 
     private url1 = "./src/app/a2dt/data.json";
     private url2 = 'http://192.168.0.29:8810/webAppExample/rest/webAppExampleService/beOrder';
@@ -26,31 +31,37 @@ export class A2DtComponent implements OnInit {
         // this.getViaHttpGet();
 
         // this.printResults();
+        console.log('in ngOnInit func.');
+        this.getTtOrdersFromServer();
     }
 
-    // getViaHttpGet() {
-    //     this._http.get(this.url1)
-    //         .subscribe((data) => {
-    //             // this.data = data.json().dsOrder.ttOrder;
-    //             // this.data = data._body.dsOrder.ttOrder;
-    //             this.allDsBorder = data.json();
-    //             // this.ttOrders = this.allDsBorder.dsOrder.ttOrder;
-    //             this.data = this.allDsBorder.dsOrder.ttOrder;
-    //         });
-    // }
+    /* getViaHttpGet() {
+        this._http.get(this.url1)
+            .subscribe((data) => {
+                // this.data = data.json().dsOrder.ttOrder;
+                // this.data = data._body.dsOrder.ttOrder;
+                this.allDsOrders = data.json();
+                // this.ttOrders = this.allDsOrders.dsOrder.ttOrder;
+                this.data = this.allDsOrders.dsOrder.ttOrder;
+            });
+    } */
 
     printResults(): void {
         console.log("data: " + this.data);
-        console.log("allDsBorder: " + this.allDsBorder);
+        console.log("allDsOrders: " + this.allDsOrders);
         console.log("ttOrders: " + this.ttOrders);
     }
 
-    // jsFuncGetHttpData(): void {
-    //     $http.get(this.url1)
-    //     .then(function(result) {
-    //         this.beOrders = result.data.dsOrder.ttOrder;
-    //     });
-    // }
+    /* jsFuncGetHttpData(): void {
+        $http.get(this.url1)
+        .then(function(result) {
+            this.beOrders = result.data.dsOrder.ttOrder;
+        });
+    } */
+
+    getTtOrdersFromServer() {
+        this.data = this._beCheckaService.getTtOrders();
+    }
 
     
 }

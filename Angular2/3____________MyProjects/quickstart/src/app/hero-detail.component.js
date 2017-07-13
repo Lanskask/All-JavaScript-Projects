@@ -20,6 +20,9 @@ var HeroDetailComponent = (function () {
         this._location = _location;
     }
     HeroDetailComponent.prototype.ngOnInit = function () {
+        this.activatedRouteSwitchmap();
+    };
+    HeroDetailComponent.prototype.activatedRouteSwitchmap = function () {
         var _this = this;
         this._activatedRoute.paramMap
             .switchMap(function (params) {
@@ -29,6 +32,11 @@ var HeroDetailComponent = (function () {
     };
     HeroDetailComponent.prototype.goBack = function () {
         this._location.back();
+    };
+    HeroDetailComponent.prototype.save = function () {
+        var _this = this;
+        this._heroService.update(this.hero)
+            .then(function () { return _this.goBack(); });
     };
     return HeroDetailComponent;
 }());

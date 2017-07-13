@@ -24,6 +24,30 @@ var HeroesComponent = (function () {
     HeroesComponent.prototype.onSelect = function (hero) {
         this.selectedHero = hero;
     };
+    HeroesComponent.prototype.add = function (name) {
+        var _this = this;
+        name = name.trim();
+        if (!name) {
+            return;
+        }
+        this._heroService.create(name)
+            .then(function (hero) {
+            _this.heroes.push(hero);
+            _this.selectedHero = null;
+        });
+    };
+    HeroesComponent.prototype.delete = function (hero) {
+        var _this = this;
+        this._heroService
+            .delete(hero.id)
+            .then(function () {
+            _this.heroes =
+                _this.heroes.filter(function (h) { return h !== hero; });
+            if (_this.selectedHero === hero) {
+                _this.selectedHero = null;
+            }
+        });
+    };
     return HeroesComponent;
 }());
 HeroesComponent = __decorate([

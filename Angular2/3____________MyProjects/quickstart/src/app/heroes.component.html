@@ -4,7 +4,9 @@
         (click)="onSelect(hero)" 
         [class.selected]="hero === selectedHero">
         <span class="badge">{{hero.id}}</span> 
-        {{hero.name}}
+        <span>{{hero.name}}</span>
+        <button class="delete"
+            (click)="delete(hero); $event.stopPropagation()">x</button> 
     </li>
 </ul>
 
@@ -13,4 +15,11 @@
         {{selectedHero.name | uppercase }} is my hero!
     </h2>
     <button (click)="gotoDetail()">View Details</button>
+</div>
+
+<div>
+    <label>hero name:</label> <input #heroName />
+    <button (click)="add(heroName.value); heroName.value=''">
+        Add
+    </button>
 </div>

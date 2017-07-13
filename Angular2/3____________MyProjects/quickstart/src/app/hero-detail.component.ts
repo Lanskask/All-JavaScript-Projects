@@ -22,6 +22,10 @@ export class HeroDetailComponent implements OnInit {
 	) {}
 
 	ngOnInit(): void {
+		this.activatedRouteSwitchmap();
+	}
+
+	activatedRouteSwitchmap() {
 		this._activatedRoute.paramMap
 			.switchMap((params: ParamMap) => 
 				this._heroService.getHero(+params.get('id')))
@@ -30,5 +34,10 @@ export class HeroDetailComponent implements OnInit {
 
 	goBack(): void {
 		this._location.back();
+	}
+
+	save(): void {
+		this._heroService.update(this.hero)
+			.then( () => this.goBack());
 	}
 }

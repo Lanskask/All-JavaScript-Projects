@@ -9,12 +9,14 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
+var app_routing_module_1 = require("./app-routing.module");
+var angular_in_memory_web_api_1 = require("angular-in-memory-web-api");
+var in_memory_data_service_1 = require("./in-memory-data.service");
 var app_component_1 = require("./app.component");
 var hero_detail_component_1 = require("./hero-detail.component");
 var heroes_component_1 = require("./heroes.component");
 var hero_service_1 = require("./hero.service");
 var dashboard_component_1 = require("./dashboard.component");
-var app_routing_module_1 = require("./app-routing.module");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -25,14 +27,15 @@ AppModule = __decorate([
         imports: [
             platform_browser_1.BrowserModule,
             forms_1.FormsModule,
+            http_1.HttpModule,
+            angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(in_memory_data_service_1.InMemoryDataService),
             app_routing_module_1.AppRoutingModule,
-            http_1.HttpModule
         ],
         declarations: [
             app_component_1.AppComponent,
+            dashboard_component_1.DashboardComponent,
             hero_detail_component_1.HeroDetailComponent,
             heroes_component_1.HeroesComponent,
-            dashboard_component_1.DashboardComponent
         ],
         providers: [hero_service_1.HeroService],
         bootstrap: [app_component_1.AppComponent]
