@@ -11,13 +11,13 @@ var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
 var app_routing_module_1 = require("./app-routing.module");
 var angular_in_memory_web_api_1 = require("angular-in-memory-web-api");
-var in_memory_data_service_1 = require("./in-memory-data.service");
+var in_memory_data_service_1 = require("./services/in-memory-data.service");
 var app_component_1 = require("./app.component");
-var hero_detail_component_1 = require("./hero-detail.component");
-var heroes_component_1 = require("./heroes.component");
-var hero_service_1 = require("./hero.service");
-var dashboard_component_1 = require("./dashboard.component");
-var hero_search_component_1 = require("./hero-search.component");
+var hero_detail_component_1 = require("./hero-detail/hero-detail.component");
+var heroes_component_1 = require("./heroes/heroes.component");
+var hero_service_1 = require("./services/hero.service");
+var dashboard_component_1 = require("./dashboard/dashboard.component");
+var hero_search_component_1 = require("./hero-search/hero-search.component");
 var AppModule = (function () {
     function AppModule() {
     }
