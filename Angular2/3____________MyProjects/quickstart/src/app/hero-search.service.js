@@ -11,20 +11,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/map");
-var HeroSearchservice = (function () {
-    function HeroSearchservice(_http) {
+var HeroSearchService = (function () {
+    function HeroSearchService(_http) {
         this._http = _http;
     }
-    HeroSearchservice.prototype.search = function (term) {
+    HeroSearchService.prototype.search = function (term) {
         return this._http
             .get("api/heroes/?name=" + term)
             .map(function (res) { return res.json().data; });
     };
-    return HeroSearchservice;
+    return HeroSearchService;
 }());
-HeroSearchservice = __decorate([
+HeroSearchService = __decorate([
     core_1.Injectable(),
     __metadata("design:paramtypes", [http_1.Http])
-], HeroSearchservice);
-exports.HeroSearchservice = HeroSearchservice;
+], HeroSearchService);
+exports.HeroSearchService = HeroSearchService;
 //# sourceMappingURL=hero-search.service.js.map

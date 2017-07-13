@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 import { Hero } from './hero';
 
 @Injectable()
-export class HeroSearchservice {
+export class HeroSearchService {
 
     constructor( private _http: Http ) { }
 
