@@ -10,7 +10,9 @@ import { ttOrder } from './ttOrder';
 export class BeCheckaService {
     // TODO: What should be here?
 	private ttOrdersUrl = 'api/ttOrder'; //'api/heroes'; 
-
+	
+	private url1 = "./src/app/a2dt/data.json";
+    private url2 = 'http://192.168.0.29:8810/webAppExample/rest/webAppExampleService/beOrder';
 	// getHeroes() {
 	// 	return Promise.resolve(HEROES);
 	// }
@@ -18,7 +20,8 @@ export class BeCheckaService {
 	constructor(private _http: Http) { }
 
 	 getTtOrders(): Promise<ttOrder[]> {
-		return this._http.get(this.ttOrdersUrl)
+		// return this._http.get(this.url1)
+		return this._http.get(this.url2)
 			.toPromise()
 			.then( response => response.json().dsOrder.ttOrder as ttOrder[])
 			.catch( this.handleError);

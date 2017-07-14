@@ -6,6 +6,7 @@ import { DataTableModule } from 'angular2-datatable';
 
 import { A2DtComponent } from './a2dt.component';
 import { DataFilterPipe } from  './data-filter.pipe';
+import { BeCheckaService } from './be-checka.service';
 
 @NgModule({
     imports: [
@@ -18,7 +19,8 @@ import { DataFilterPipe } from  './data-filter.pipe';
     ],
     exports: [A2DtComponent],
     providers: [
-        A2DtComponent
+        A2DtComponent,
+        BeCheckaService
     ],
     declarations: [
         A2DtComponent, 
