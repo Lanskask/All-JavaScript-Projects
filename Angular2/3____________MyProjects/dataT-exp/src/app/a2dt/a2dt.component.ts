@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 
-import { BeCheckaService } from './be-checka.service';
+// import { BeCheckaService } from './be-checka.service';
 
 @Component({
     selector: 'a2dt',
@@ -21,7 +21,7 @@ export class A2DtComponent implements OnInit {
 
     constructor(
         private _http: Http, 
-        private _beCheckaService: BeCheckaService,
+        // private _beCheckaService: BeCheckaService,
     ) { }
 
     private url1 = "./src/app/a2dt/data.json";
@@ -32,7 +32,7 @@ export class A2DtComponent implements OnInit {
 
         // this.printResults();
         console.log('in ngOnInit func.');
-        this.getTtOrdersFromServer();
+        // this.getTtOrdersFromServer();
     }
 
     /* getViaHttpGet() {
@@ -59,9 +59,9 @@ export class A2DtComponent implements OnInit {
         });
     } */
 
-    getTtOrdersFromServer() {
+    /* getTtOrdersFromServer() {
         this.data = this._beCheckaService.getTtOrders();
-    }
+    }  */
 
     
 }

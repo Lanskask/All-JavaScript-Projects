@@ -17,7 +17,7 @@ export class BeCheckaService {
 
 	constructor(private _http: Http) { }
 
-	getTtOrders(): Promise<ttOrder[]> {
+	 getTtOrders(): Promise<ttOrder[]> {
 		return this._http.get(this.ttOrdersUrl)
 			.toPromise()
 			.then( response => response.json().dsOrder.ttOrder as ttOrder[])
@@ -32,5 +32,5 @@ export class BeCheckaService {
 	getTtOrder(BillToID: number): Promise<ttOrder>  {
 		return this.getTtOrders()
 			.then(ttOrders => ttOrders.find(ttOrder => ttOrder.BillToID === BillToID));
-	}
+	}  
 }

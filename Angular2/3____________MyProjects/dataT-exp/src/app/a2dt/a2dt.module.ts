@@ -24,6 +24,6 @@ import { DataFilterPipe } from  './data-filter.pipe';
         A2DtComponent, 
         DataFilterPipe
     ],
-    bootstrap: [A2DtComponent]
+    // bootstrap: [A2DtComponent]
 })
 export class A2DtModule { }

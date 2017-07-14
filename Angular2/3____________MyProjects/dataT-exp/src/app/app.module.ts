@@ -12,7 +12,7 @@ import { NgxDtComponent } from './ngx-dt/ngx-dt.component';
   bootstrap: [AppComponent],
   declarations: [
     AppComponent,
-    NgxDtComponent,
+    // NgxDtComponent,
     // A2DtComponent
   ],
 })
