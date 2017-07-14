@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 
 import { BeCheckaService } from './be-checka.service';
+import { NgFor } from '@angular/common';
 
 @Component({
     selector: 'a2dt',
-    templateUrl: './a2dt.component.html',
+    templateUrl: './a2dt2.component.html',
 })
 export class A2DtComponent implements OnInit { 
     public data;
@@ -59,9 +60,18 @@ export class A2DtComponent implements OnInit {
         });
     } */
 
-    getTtOrdersFromServer() {
-        this.data = this._beCheckaService.getTtOrders();
+    getTtOrdersFromServer2() {
+        this.allDsOrders = this._beCheckaService.getTtOrders();
+        this.data = this.allDsOrders.json().dsOrder.ttOrder
     }  
+
+    getTtOrdersFromServer() {
+        this._beCheckaService.getTtOrders()
+            .subscribe(responseData => {
+                var stringToParse = responseData._body;
+                this.data = JSON.parse(stringToParse).dsOrder.ttOrder;
+            });
+    }
 
     
 }
