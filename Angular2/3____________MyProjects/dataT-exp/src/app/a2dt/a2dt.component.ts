@@ -14,6 +14,7 @@ export class A2DtComponent implements OnInit {
     public rowsOnPage;
     public sortBy = "email";
     public sortOrder = "asc";
+    public numArray: number[] = [1,2,3];
 
     // --
     public allDsOrders: any;
@@ -60,16 +61,17 @@ export class A2DtComponent implements OnInit {
         });
     } */
 
-    getTtOrdersFromServer2() {
+    /* getTtOrdersFromServer2() {
         this.allDsOrders = this._beCheckaService.getTtOrders();
-        this.data = this.allDsOrders.json().dsOrder.ttOrder
-    }  
+        this.data = this.allDsOrders.json().dsOrder.ttOrder;
+    } */  
 
     getTtOrdersFromServer() {
         this._beCheckaService.getTtOrders()
             .subscribe(responseData => {
-                var stringToParse = responseData._body;
-                this.data = JSON.parse(stringToParse).dsOrder.ttOrder;
+                responseData => this.data = responseData.dsOrder.ttOrder.splice(0, 15);
+                /* var stringToParse = responseData._body;
+                this.data = JSON.parse(stringToParse).dsOrder.ttOrder; */
             });
     }
 

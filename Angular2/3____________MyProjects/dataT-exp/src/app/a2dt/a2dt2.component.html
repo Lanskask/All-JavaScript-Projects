@@ -6,8 +6,25 @@
                 <span>Angular2 DataTable component</span><br/>
                 <small>by mariuszfoltak</small>
             </h1>
+            <p>{{sortBy}}  {{sortOrder}}</p>
+
+            <h3>Numbers: </h3>
+            <tr *ngFor="let item of numArray">
+                <td>{{item}}</td>
+            </tr>
         </div>
 
+        <table>
+            <tr *ngFor="let item of data">
+                <td>
+                    <button (click)="remove(item)" class="btn btn-danger">x</button>
+                </td>
+                <td>{{item.Ordernum}}</td>
+                <td>{{item.CustNum}}</td>
+                <td class="text-right">{{item.OrderDate}}</td>
+                <td>{{item.Carrier | uppercase}}</td>
+            </tr>
+        </table>
 
         <div class="row">
 
@@ -86,7 +103,7 @@
                 </thead>
 
                 <tbody>
-                    <tr *ngFor="let item of mf.data">
+                    <tr *ngFor="let item of data">
                         <td>
                             <button (click)="remove(item)" class="btn btn-danger">x</button>
                         </td>
