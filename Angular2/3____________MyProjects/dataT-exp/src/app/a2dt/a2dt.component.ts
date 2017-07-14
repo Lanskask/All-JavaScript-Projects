@@ -59,7 +59,7 @@ export class A2DtComponent implements OnInit {
         });
     } */
 
-     getTtOrdersFromServer() {
+    getTtOrdersFromServer() {
         this.data = this._beCheckaService.getTtOrders();
     }  
 
