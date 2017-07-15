@@ -4,3 +4,5 @@
 bower_components/
 
 ReactJS/*/build
+*.rar
+*.zip
