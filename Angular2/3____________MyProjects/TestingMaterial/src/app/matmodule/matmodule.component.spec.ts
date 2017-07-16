@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MatModuleComponent } from './mat-module.component';
+import { MatModuleComponent } from './matmodule.component';
 
 describe('MatModuleComponent', () => {
   let component: MatModuleComponent;
