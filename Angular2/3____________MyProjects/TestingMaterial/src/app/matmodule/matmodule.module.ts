@@ -1,33 +1,22 @@
 import { NgModule } from '@angular/core';
-import 'hammerjs';
 import { CommonModule } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {
-  MdDialogModule,
-  MdGridListModule,
-  MdSelectModule,
-  MdInputModule,
-  MdTabsModule
-} from '@angular/material';
 import { NgForm, FormsModule } from '@angular/forms';
 
+import { CustomMaterialModule } from './custom-material.module';
 import { MatModuleComponent } from './matmodule.component';
 import { BeOrderDialogComponent } 
   from './be-order-dialog/be-order-dialog.component';
+import { TableModule } from './table/table.module';
 
 @NgModule({
   imports: [
+    CustomMaterialModule,
     CommonModule,
-    BrowserAnimationsModule,
-    MdDialogModule,
-    MdGridListModule,
-    MdSelectModule,
-    FormsModule,
-    MdInputModule,
-    MdTabsModule,
+    TableModule,
+    NgForm, FormsModule 
   ],
   declarations: [MatModuleComponent, BeOrderDialogComponent],
-  exports: [MatModuleComponent],
+  exports: [MatModuleComponent, TableModule],
   entryComponents: [
     BeOrderDialogComponent
   ]

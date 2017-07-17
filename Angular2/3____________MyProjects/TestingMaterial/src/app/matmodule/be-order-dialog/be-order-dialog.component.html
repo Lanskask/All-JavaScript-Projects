@@ -1,5 +1,5 @@
-
-<form #myForm="BeOrderDialogForm" class="container" (submit)="saveBeOrder()" novalidate>
+<!--  -->
+<form name="BeOrderDialogForm" #BeOrderDialogForm="ngForm" class="container" (submit)="saveBeOrder()" novalidate>
   <h3 md-dialog-title>BeOrder Editor:</h3>
 
   <md-tab-group>
@@ -9,65 +9,80 @@
     <input type="date" class="form-control" [(ngModel)]="task.deadline">
   </div> -->
       <md-input-container>
-        <input type="number" mdInput placeholder="BillToID" [(ngModel)]="ttOrder.BillToID">
+        <input type="number" mdInput placeholder="BillToID" 
+          name="BillToID" [(ngModel)]="ttOrder.BillToID">
       </md-input-container>
 
       <md-input-container>
-        <input type="string" mdInput placeholder="Carrier" [(ngModel)]="ttOrder.Carrier">
+        <input type="string" mdInput placeholder="Carrier" 
+          name="Carrier" [(ngModel)]="ttOrder.Carrier">
       </md-input-container>
 
       <md-input-container>
-        <input type="string" mdInput placeholder="Creditcard" [(ngModel)]="ttOrder.Creditcard">
+        <input type="string" mdInput placeholder="Creditcard" 
+          name="Creditcard" [(ngModel)]="ttOrder.Creditcard">
       </md-input-container>
 
       <md-input-container>
-        <input type="number" mdInput placeholder="CustNum" [(ngModel)]="ttOrder.CustNum">
+        <input type="number" mdInput placeholder="CustNum" 
+          name="CustNum" [(ngModel)]="ttOrder.CustNum">
       </md-input-container>
 
       <md-input-container>
-        <input type="string" mdInput placeholder="Instructions" [(ngModel)]="ttOrder.Instructions">
+        <input type="string" mdInput placeholder="Instructions" 
+          name="Instructions" [(ngModel)]="ttOrder.Instructions">
       </md-input-container>
 
       <md-input-container>
-        <input type="Date" mdInput placeholder="OrderDate" [(ngModel)]="ttOrder.OrderDate">
+        <input type="string" mdInput placeholder="OrderDate" 
+          name="OrderDate" [(ngModel)]="ttOrder.OrderDate">
       </md-input-container>
 
       <md-input-container>
-        <input type="string" mdInput placeholder="OrderStatus" [(ngModel)]="ttOrder.OrderStatus">
+        <input type="string" mdInput placeholder="OrderStatus" 
+          name="OrderStatus" [(ngModel)]="ttOrder.OrderStatus">
       </md-input-container>
     </md-tab>
 
     <md-tab label="Не обязательные">
       <md-input-container>
-        <input type="number" mdInput placeholder="Ordernum" [(ngModel)]="ttOrder.Ordernum">
+        <input type="number" mdInput placeholder="Ordernum" 
+          name="Ordernum" [(ngModel)]="ttOrder.Ordernum">
       </md-input-container>
 
       <md-input-container>
-        <input type="number" mdInput placeholder="PO" [(ngModel)]="ttOrder.PO">
+        <input type="number" mdInput placeholder="PO" 
+          name="PO" [(ngModel)]="ttOrder.PO">
       </md-input-container>
 
       <md-input-container>
-        <input type="Date" mdInput placeholder="PromiseDate" [(ngModel)]="ttOrder.PromiseDate">
+        <input type="string" mdInput placeholder="PromiseDate" 
+          name="PromiseDate" [(ngModel)]="ttOrder.PromiseDate">
       </md-input-container>
 
       <md-input-container>
-        <input type="string" mdInput placeholder="SalesRep" [(ngModel)]="ttOrder.SalesRep">
+        <input type="string" mdInput placeholder="SalesRep" 
+          name="SalesRep" [(ngModel)]="ttOrder.SalesRep">
       </md-input-container>
 
       <md-input-container>
-        <input type="Date" mdInput placeholder="ShipDate" [(ngModel)]="ttOrder.ShipDate">
+        <input type="string" mdInput placeholder="ShipDate" 
+          name="ShipDate" [(ngModel)]="ttOrder.ShipDate">
       </md-input-container>
 
       <md-input-container>
-        <input type="number" mdInput placeholder="ShipToID" [(ngModel)]="ttOrder.ShipToID">
+        <input type="number" mdInput placeholder="ShipToID" 
+          name="ShipToID" [(ngModel)]="ttOrder.ShipToID">
       </md-input-container>
 
       <md-input-container>
-        <input type="string" mdInput placeholder="Terms" [(ngModel)]="ttOrder.Terms">
+        <input type="string" mdInput placeholder="Terms" 
+          name="Terms" [(ngModel)]="ttOrder.Terms">
       </md-input-container>
 
       <md-input-container>
-        <input type="number" mdInput placeholder="WarehouseNum" [(ngModel)]="ttOrder.WarehouseNum">
+        <input type="number" mdInput placeholder="WarehouseNum" 
+          name="WarehouseNum" [(ngModel)]="ttOrder.WarehouseNum">
       </md-input-container>
     </md-tab>
   </md-tab-group>
