@@ -8,6 +8,7 @@ import {
 	MdInputModule,
 	MdTabsModule
 } from '@angular/material';
+import { NgForm, FormsModule } from '@angular/forms';
 
 @NgModule({
 	imports: [
@@ -17,6 +18,7 @@ import {
 		MdSelectModule,
 		MdInputModule,
 		MdTabsModule,
+		NgForm, FormsModule
 	],
 	exports: [
 		BrowserAnimationsModule,
@@ -25,6 +27,7 @@ import {
 		MdSelectModule,
 		MdInputModule,
 		MdTabsModule,
+		NgForm, FormsModule
 	],
 })
 export class CustomMaterialModule { }

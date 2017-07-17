@@ -1,5 +1,7 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Http } from '@angular/http';
+
+import { GetOrdersService } from '../services/getOrders.service' ;
 
 @Component({
   selector: 'app-root',
@@ -7,22 +9,31 @@ import { Http } from '@angular/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
 
-  // spaceScreens: Array<any>;
+  orders: Array<any>;
+  
+  url1: string = './allBeOrderData.json';
+  url2: string = 'http://192.168.0.29:8810/webAppExample/rest/webAppExampleService/beOrder';
 
-  /*constructor(private http:Http) {
-  	// this.http.get('./data.json')
-  	this.http.get('src/data.json')
-  		.map(response => response.json().screenshots)
-  		.subscribe(res => this.spaceScreens = res);
-  }*/
+  constructor(private http: Http) {
+  	this.http.get(this.url2)
+  		.map(response => response.json().dsOrder.ttOrder)
+  		.subscribe(res => this.orders = res);
+  } 
+}
+
+/* export class AppComponent implements OnInit {
 
   orders: Array<any>;
 
-  constructor(private http:Http) {
-  	this.http.get('http://192.168.0.29:8810/webAppExample/rest/webAppExampleService/beOrder')
-  		.map(response => response.json().dsOrder.ttOrder)
-  		.subscribe(res => this.orders = res);
+  constructor(private _getOrdersService: GetOrdersService) {}
+
+  ngOnInit() {
+    this.getOrders();
+  }
+
+  getOrders() {
+    this.orders = this._getOrdersService.orders;
   }
 }
+ */

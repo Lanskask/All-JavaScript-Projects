@@ -1,105 +1,27 @@
-<md-toolbar color="primary">
-  <span>BeOrders</span>
-  <span class="spacer"></span>
-  <button md-icon-button [mdMenuTriggerFor]="menu">
-    <md-icon>more_vert</md-icon>
-  </button>
-  <md-menu #menu="mdMenu">
-    <button md-menu-item>
-      <md-icon>fingerprint</md-icon>
-      <span>Login</span>
-    </button>
-    <button md-menu-item disabled>
-      <md-icon>announcement</md-icon>
-      <span>Issues</span>
-    </button>
-    <button md-menu-item>
-      <md-icon>notifications_off</md-icon>
-      <span>disable alert</span>
-    </button>
-  </md-menu>
-</md-toolbar>
-<md-tab-group>
-  <md-tab label="Gallery">
-    <table>
-      <thead>
-        <tr>
-          <td>Ordernum</td>
-          <td>CustNum</td>
-          <td>OrderDate</td>
-          <td>ShipDate</td>
-          <td>PromiseDat</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let order of orders">
-          <td>{{order.Ordernum}} </td>
-          <td>{{order.CustNum}} </td>
-          <td>{{order.OrderDate}} </td>
-          <td>{{order.ShipDate}} </td>
-          <td>{{order.PromiseDat}} </td>
-        </tr>
-      </tbody>
-    </table>
-  </md-tab>
+<!-- <table>
 
-  <md-tab label="Settings">
-    <div *ngIf="spaceScreens">
-      spaceScreens is NOT empty
-    </div>
-    <div *ngIf="!spaceScreens">
-      spaceScreens is empty
-    </div>
-    <md-card *ngFor="let spaceScreen of spaceScreens; let i = index">
-      <img md-card-image src="{{ spaceScreen.img }}" />
-      <p>{{spaceScreen.description}}</p>
-      <p>{{spaceScreen.liked}}</p>
-    </md-card>
-  </md-tab>
+  <thead>
+    <tr>
+      <td>Ordernum</td>
+      <td>CustNum</td>
+      <td>OrderDate</td>
+      <td>ShipDate</td>
+      <td>PromiseDat</td>
+    </tr>
+  </thead>
 
-  <md-tab label="Some other tab">
-    
-    <table class="table table-striped" [mfData]="orders" #mf="mfDataTable" [mfRowsOnPage]="5">
+  <tbody>
+    <tr *ngFor="let order of orders">
+      <td>{{order.Ordernum}} </td>
+      <td>{{order.CustNum}} </td>
+      <td>{{order.OrderDate}} </td>
+      <td>{{order.ShipDate}} </td>
+      <td>{{order.PromiseDat}} </td>
+    </tr>
+  </tbody>
 
-      <thead>
-        <tr>
-          <th style="width: 20%">
-            <mfDefaultSorter by="Ordernum">Ordernum</mfDefaultSorter>
-          </th>
-          <th style="width: 50%">
-            <mfDefaultSorter by="CustNum">CustNum</mfDefaultSorter>
-          </th>
-          <th style="width: 10%">
-            <mfDefaultSorter by="OrderDate">OrderDate</mfDefaultSorter>
-          </th>
-          <th style="width: 20%">
-            <mfDefaultSorter by="ShipDate">ShipDate</mfDefaultSorter>
-          </th>
-          <th style="width: 20%">
-            <mfDefaultSorter by="PromiseDat">PromiseDat</mfDefaultSorter>
-          </th>
-        </tr>
-      </thead>
+</table> -->
 
-      <tbody>
-        <tr *ngFor="let order of mf.orders">
-          <td>{{order.Ordernum}} </td>
-          <td>{{order.CustNum}} </td>
-          <td>{{order.OrderDate}} </td>
-          <td>{{order.ShipDate}} </td>
-          <td>{{order.PromiseDat}} </td>
-        </tr>
-      </tbody>
-
-      <tfoot>
-        <tr>
-          <td colspan="4">
-            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
-          </td>
-        </tr>
-      </tfoot>
-
-    </table>
-
-  </md-tab>
-</md-tab-group>
+<app-data-tabl-exampl>
+  Should load app-data-tabl-exampl
+</app-data-tabl-exampl>

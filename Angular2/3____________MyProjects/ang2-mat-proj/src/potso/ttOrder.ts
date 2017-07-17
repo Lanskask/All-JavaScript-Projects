@@ -1,11 +1,12 @@
 export class ttOrder {
+
     constructor(
         public BillToID: number,
         public Carrier: string,
         public Creditcard: string,
         public CustNum: number,
         public Instructions: string,
-        public OrderDate: string, // Date
+        public OrderDate: string,// Date
         public OrderStatus: string,
         public Ordernum: number,
         public PO: string,
@@ -14,6 +15,6 @@ export class ttOrder {
         public ShipDate: string, // Date
         public ShipToID: number,
         public Terms: string,
-        public WarehouseNum: number,
-    ) { }
+        public WarehouseNum: number
+    ) {  }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MdDialogRef} from '@angular/material';
+import { MdDialogRef } from '@angular/material';
 
 import { ttOrder } from '../../potso/ttOrder';
 
@@ -10,7 +10,8 @@ import { ttOrder } from '../../potso/ttOrder';
 })
 export class BeOrderDialogComponent implements OnInit {
 
-  constructor(public dialogRef: MdDialogRef<BeOrderDialogComponent>) { }
+  // constructor(public dialogRef: MdDialogRef<BeOrderDialogComponent>) { }
+  constructor() { }
 
   ngOnInit() {
   }
@@ -20,20 +21,20 @@ export class BeOrderDialogComponent implements OnInit {
   }
 
   ttOrder = new ttOrder(
-    0, 
-    "FlyByNight Courier", 
-    "Master Card", 
-    53, 
-    "", 
-    "1998-01-26", 
-    "Shipped", 
-    1, 
-    "", 
-    "1998-01-31", 
-    "RDR", 
-    "1998-01-31", 
-    0, 
-    "Net30", 
-    0,  
+    0,
+    "FlyByNight Courier",
+    "Master Card",
+    53,
+    "",
+    "1998-01-26",
+    "Shipped",
+    1,
+    "",
+    "1998-01-31",
+    "RDR",
+    "1998-01-31",
+    0,
+    "Net30",
+    0,
   );
 }
