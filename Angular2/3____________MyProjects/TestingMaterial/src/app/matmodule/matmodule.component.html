@@ -1,0 +1,22 @@
+<p>
+  mat-module works!
+</p>
+
+<md-card>
+	<div>
+	  <md-select placeholder="Favorite food">
+	    <md-option *ngFor="let food of foods" [value]="food.value">
+	      {{ food.viewValue }}
+	    </md-option>
+	  </md-select>
+	</div>
+</md-card>
+
+<md-card>
+  <md-grid-list cols="2" rowHeight="2:1">
+    <md-grid-tile>1</md-grid-tile>
+    <md-grid-tile>2</md-grid-tile>
+    <md-grid-tile>3</md-grid-tile>
+    <md-grid-tile>4</md-grid-tile>
+  </md-grid-list>
+</md-card>
