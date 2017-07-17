@@ -1,0 +1,92 @@
+
+<form class="container" (submit)="saveBeOrder()">
+  <h3 md-dialog-title>BeOrder Editor:</h3>
+
+  <md-tab-group>
+    <md-tab label="Обязательные">
+
+      <!--   <div class="form-group">
+    <input type="date" class="form-control" [(ngModel)]="task.deadline">
+  </div> -->
+      <md-input-container>
+        <input type="number" mdInput placeholder="BillToID" [(ngModel)]="ttOrder.BillToID">
+      </md-input-container>
+
+      <md-input-container>
+        <input type="string" mdInput placeholder="Carrier" [(ngModel)]="ttOrder.Carrier">
+      </md-input-container>
+
+      <md-input-container>
+        <input type="string" mdInput placeholder="Creditcard" [(ngModel)]="ttOrder.Creditcard">
+      </md-input-container>
+
+      <md-input-container>
+        <input type="number" mdInput placeholder="CustNum" [(ngModel)]="ttOrder.CustNum">
+      </md-input-container>
+
+      <md-input-container>
+        <input type="string" mdInput placeholder="Instructions" [(ngModel)]="ttOrder.Instructions">
+      </md-input-container>
+
+      <md-input-container>
+        <input type="Date" mdInput placeholder="OrderDate" [(ngModel)]="ttOrder.OrderDate">
+      </md-input-container>
+
+      <md-input-container>
+        <input type="string" mdInput placeholder="OrderStatus" [(ngModel)]="ttOrder.OrderStatus">
+      </md-input-container>
+    </md-tab>
+
+    <md-tab label="Не обязательные">
+      <md-input-container>
+        <input type="number" mdInput placeholder="Ordernum" [(ngModel)]="ttOrder.Ordernum">
+      </md-input-container>
+
+      <md-input-container>
+        <input type="number" mdInput placeholder="PO" [(ngModel)]="ttOrder.PO">
+      </md-input-container>
+
+      <md-input-container>
+        <input type="Date" mdInput placeholder="PromiseDate" [(ngModel)]="ttOrder.PromiseDate">
+      </md-input-container>
+
+      <md-input-container>
+        <input type="string" mdInput placeholder="SalesRep" [(ngModel)]="ttOrder.SalesRep">
+      </md-input-container>
+
+      <md-input-container>
+        <input type="Date" mdInput placeholder="ShipDate" [(ngModel)]="ttOrder.ShipDate">
+      </md-input-container>
+
+      <md-input-container>
+        <input type="number" mdInput placeholder="ShipToID" [(ngModel)]="ttOrder.ShipToID">
+      </md-input-container>
+
+      <md-input-container>
+        <input type="string" mdInput placeholder="Terms" [(ngModel)]="ttOrder.Terms">
+      </md-input-container>
+
+      <md-input-container>
+        <input type="number" mdInput placeholder="WarehouseNum" [(ngModel)]="ttOrder.WarehouseNum">
+      </md-input-container>
+    </md-tab>
+  </md-tab-group>
+
+  <!-- <div class="form-group">
+    <input type="checkbox" name="queued" [(ngModel)]="task.queued">
+    <label for="queued"> 
+      this task by default?
+    </label>
+  </div> -->
+
+  <md-dialog-actions>
+    <button md-button md-dialog-close>Cancel</button>
+    <button md-button [md-dialog-close]="true">Save</button>
+  </md-dialog-actions> 
+  <!-- <md-dialog-actions>
+    <input type="submit" class="btn btn-success" value="Save">
+    <a [routerLink]="['TaskList']" class="btn btn-danger">
+    Cancel
+    </a>
+  </md-dialog-actions>  -->
+</form>

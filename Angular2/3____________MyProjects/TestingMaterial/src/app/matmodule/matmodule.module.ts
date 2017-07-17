@@ -5,6 +5,7 @@ import { MdDialogModule, MdGridListModule, MdSelectModule } from '@angular/mater
 import 'hammerjs';
 
 import { MatModuleComponent } from './matmodule.component';
+import { BeOrderDialogComponent } from './src/app/matmodule/be-order-dialog/be-order-dialog.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,7 @@ import { MatModuleComponent } from './matmodule.component';
     MdGridListModule,
     MdSelectModule
   ],
-  declarations: [MatModuleComponent],
+  declarations: [MatModuleComponent, BeOrderDialogComponent],
   exports: [MatModuleComponent]
 })
 export class MatModuleModule { }
