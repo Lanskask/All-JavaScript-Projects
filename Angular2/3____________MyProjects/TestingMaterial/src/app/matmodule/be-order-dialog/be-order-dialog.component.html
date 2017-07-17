@@ -1,5 +1,5 @@
 
-<form class="container" (submit)="saveBeOrder()">
+<form #myForm="BeOrderDialogForm" class="container" (submit)="saveBeOrder()" novalidate>
   <h3 md-dialog-title>BeOrder Editor:</h3>
 
   <md-tab-group>
@@ -81,7 +81,9 @@
 
   <md-dialog-actions>
     <button md-button md-dialog-close>Cancel</button>
-    <button md-button [md-dialog-close]="true">Save</button>
+    <!-- <button md-button [md-dialog-close]="true">Save</button> -->
+    <button [disabled]="BeOrderDialogForm.invalid"
+      class="btn btn-default" (click)="submit(myForm)">Save</button>
   </md-dialog-actions> 
   <!-- <md-dialog-actions>
     <input type="submit" class="btn btn-success" value="Save">

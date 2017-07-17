@@ -4,13 +4,13 @@ export class ttOrder {
     public Creditcard: string;
     public CustNum: number;
     public Instructions: string;
-    public OrderDate: Date; // Date
+    public OrderDate: string; // Date
     public OrderStatus: string;
     public Ordernum: number;
     public PO: string;
-    public PromiseDate: Date; // Date
+    public PromiseDate: string; // Date
     public SalesRep: string;
-    public ShipDate: Date; // Date
+    public ShipDate: string; // Date
     public ShipToID: number;
     public Terms: string;
     public WarehouseNum: number;
@@ -21,13 +21,13 @@ export class ttOrder {
         Creditcard: string,
         CustNum: number,
         Instructions: string,
-        OrderDate: Date,// Date
+        OrderDate: string,// Date
         OrderStatus: string,
         Ordernum: number,
         PO: string,
-        PromiseDate: Date, // Date
+        PromiseDate: string, // Date
         SalesRep: string,
-        ShipDate: Date, // Date
+        ShipDate: string, // Date
         ShipToID: number,
         Terms: string,
         WarehouseNum: number
