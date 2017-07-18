@@ -5,8 +5,8 @@ import { GetOrdersService } from '../services/getOrders.service' ;
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.component/app.component.html',
+  styleUrls: ['./app.component/app.component.css']
 })
 export class AppComponent {
 
@@ -21,19 +21,3 @@ export class AppComponent {
   		.subscribe(res => this.orders = res);
   } 
 }
-
-/* export class AppComponent implements OnInit {
-
-  orders: Array<any>;
-
-  constructor(private _getOrdersService: GetOrdersService) {}
-
-  ngOnInit() {
-    this.getOrders();
-  }
-
-  getOrders() {
-    this.orders = this._getOrdersService.orders;
-  }
-}
- */
