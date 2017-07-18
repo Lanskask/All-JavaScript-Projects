@@ -18,7 +18,7 @@ import { NgForm, FormsModule } from '@angular/forms';
 		MdSelectModule,
 		MdInputModule,
 		MdTabsModule,
-		NgForm, FormsModule
+		FormsModule
 	],
 	exports: [
 		BrowserAnimationsModule,

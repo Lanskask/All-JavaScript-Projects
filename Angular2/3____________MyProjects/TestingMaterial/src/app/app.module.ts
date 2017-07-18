@@ -5,10 +5,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { MatModuleModule } from './matmodule/matmodule.module';
 import { GetDataService } from './services/getdata.service';
+import { RavilComponent } from './src/app/ravil/ravil.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RavilComponent
   ],
   imports: [
     BrowserModule,

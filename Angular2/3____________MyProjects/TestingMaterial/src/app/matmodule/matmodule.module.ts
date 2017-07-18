@@ -13,7 +13,7 @@ import { NgForm, FormsModule } from '@angular/forms';
     CustomMaterialModule,
     CommonModule,
     TableModule,
-    NgForm, FormsModule 
+    FormsModule 
   ],
   declarations: [MatModuleComponent, BeOrderDialogComponent],
   exports: [MatModuleComponent, TableModule],
