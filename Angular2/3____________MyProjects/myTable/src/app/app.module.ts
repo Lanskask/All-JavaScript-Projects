@@ -1,18 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
 import { GetDataService } from './services/get-data.service';
-import { CustomMaterialModule } from './custom-material.module';
+import { RepresentOrdersDataComponent } 
+  from './represent-orders-data/represent-orders-data.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RepresentOrdersDataComponent,
   ],
   imports: [
     BrowserModule,
-    CustomMaterialModule
+    HttpModule
   ],
   providers: [GetDataService],
   bootstrap: [AppComponent]
