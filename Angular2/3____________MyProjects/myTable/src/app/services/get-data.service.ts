@@ -11,7 +11,7 @@ import { ttOrder } from "../potso/ttOrder";
 @Injectable()
 export class GetDataService {
 
-	url1 = '../../../allBeOrderData.json';
+	url1 = '../../assets/allBeOrderData.json';
 	url2 = "http://192.168.0.29:8810/webAppExample/rest/webAppExampleService/beOrder";
 
 	constructor(private _http: Http) { }
