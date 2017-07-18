@@ -19,11 +19,11 @@ export class GetDataService {
 	getUsers(): Observable<ttOrder[]> {
 		return this._http.get(this.url2)
 			.map((resp: Response) => {
-				let ttOrdersList = resp.json().dsOrder.ttOrder;
+				let ttOrdersList = resp.json().dsOrder.ttOrder as ttOrder[];
 				console.log(ttOrdersList);
-				let ttOrders: ttOrder[] = [];
+				// let ttOrders: ttOrder[] = [];
 
-				 for (let index in ttOrdersList) {
+				/* for (let index in ttOrdersList) {
 					console.log(ttOrdersList[index]);
 					let ttOrder = ttOrdersList[index];
 					ttOrders.push({
@@ -43,9 +43,10 @@ export class GetDataService {
 						Terms: ttOrder.Terms,
 						WarehouseNum: ttOrder.WarehouseNum,
 					});
-				} 
+				} */
 
-				return ttOrders;
+				// return ttOrders;
+				return ttOrdersList;
 			})
 			.catch((error: any) => { return Observable.throw(error); });;
 	}
