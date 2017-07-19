@@ -5,8 +5,8 @@ import { ttOrder } from '../../potso/ttOrder';
 
 @Component({
   selector: 'app-be-order-dialog',
-  templateUrl: './be-order-dialog.component.html',
-  styleUrls: ['./be-order-dialog.component.css']
+  templateUrl: './be-order-dialog.component/be-order-dialog.component.html',
+  styleUrls: ['./be-order-dialog.component/be-order-dialog.component.css']
 })
 export class BeOrderDialogComponent implements OnInit {
 

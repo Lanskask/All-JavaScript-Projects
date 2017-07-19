@@ -4,25 +4,38 @@ import { HttpModule } from '@angular/http';
 import 'hammerjs';
 
 import { MdTableModule, MdToolbarModule } from '@angular/material';
+import { MdDialog } from '@angular/material';
+import {OVERLAY_PROVIDERS} from "@angular/material";
 
 import { AppComponent } from './app.component';
 import { GetDataService } from './services/get-data.service';
 import { RepresentOrdersDataComponent }
   from './represent-orders-data/represent-orders-data.component';
 import { NgxExpComponent } from './ngx-exp/ngx-exp.component';
+import { OpenEditDialogComponent } 
+  from './represent-orders-data/open-edit-dialog/open-edit-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RepresentOrdersDataComponent,
     NgxExpComponent,
+    OpenEditDialogComponent,
+    // OpenEditDialogComponent,
   ],
   imports: [
     BrowserModule,
     HttpModule,
     MdTableModule, MdToolbarModule
   ],
-  providers: [GetDataService],
-  bootstrap: [AppComponent]
+  providers: [
+    GetDataService, 
+    MdDialog, 
+    // OVERLAY_PROVIDERS
+  ],
+  bootstrap: [AppComponent],
+  entryComponents: [
+    // OpenEditDialogComponent
+  ]
 })
 export class AppModule { }

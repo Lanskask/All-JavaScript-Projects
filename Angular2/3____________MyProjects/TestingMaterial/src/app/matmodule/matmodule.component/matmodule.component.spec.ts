@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BeOrderDialogComponent } from './be-order-dialog.component';
+import { MatModuleComponent } from '../matmodule.component';
 
-describe('BeOrderDialogComponent', () => {
-  let component: BeOrderDialogComponent;
-  let fixture: ComponentFixture<BeOrderDialogComponent>;
+describe('MatModuleComponent', () => {
+  let component: MatModuleComponent;
+  let fixture: ComponentFixture<MatModuleComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BeOrderDialogComponent ]
+      declarations: [ MatModuleComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BeOrderDialogComponent);
+    fixture = TestBed.createComponent(MatModuleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

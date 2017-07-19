@@ -16,7 +16,9 @@ export class HeroService {
 
 	constructor(private _http: Http) { }
 
-	private headers = new Headers({'Content-Type': 'application/json'});
+	private headers = new Headers({
+		'Content-Type': 'application/json'
+	});
 
 	getHeroes(): Promise<Hero[]> {
 		return this._http.get(this.heroesUrl)

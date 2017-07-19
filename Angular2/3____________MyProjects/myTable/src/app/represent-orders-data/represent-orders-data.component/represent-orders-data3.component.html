@@ -1,18 +1,68 @@
 <p>ttOrders: </p>
 
-<table border="1">
-    <tr>
-        <td>Row 1, Column 1</td>
-        <td>Row 1, Column 2</td>
-    </tr>
-    <tr>
-        <td>Row 2, Column 1</td>
-        <td>Row 2, Column 2</td>
-    </tr>
-</table>
+<div class="container">
+    <nav>
+        <ul class="pagination pagination-sm">
+            <li class="page-item">
+                <a href="#" class="page-link" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item"><a href="#" class="page-link">1</a></li>
+            <li class="page-item"><a href="#" class="page-link">2</a></li>
+            <li class="page-item"><a href="#" class="page-link">3</a></li>
+            <li class="page-item"><a href="#" class="page-link">4</a></li>
+            <li class="page-item"><a href="#" class="page-link">5</a></li>
+            <li class="page-item"><a href="#" class="page-link">6</a></li>
+            <li class="page-item"><a href="#" class="page-link">7</a></li>
+            <li class="page-item">
+                <a href="#" class="page-link" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 
-<ul>
-    <li *ngFor="let ttOrder of ttOrders">
-        {{ ttOrder.Carrier }}
-    </li>
-</ul>
+    <table class="table table-bordered table-hover table-sm table-responsive">
+        <thead class="thead-default thead-inverse">
+            <tr>
+                <td>BillToID</td>
+                <td>Carrier</td>
+                <td>Creditcard</td>
+                <td>CustNum</td>
+                <td>Instructions</td>
+                <!-- <td>OrderDate</td>
+                <td>OrderStatus</td>
+                <td>Ordernum</td>
+                <td>PO</td>
+                <td>PromiseDate</td>
+                <td>SalesRep</td>
+                <td>ShipDate</td>
+                <td>ShipToID</td>
+                <td>Terms</td>
+                <td>WarehouseNum</td> -->
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let ttOrder of ttOrders" (dblclick)="editTtOrder(ttOrder)">
+                <td>{{ ttOrder.BillToID }}</td>
+                <td>{{ ttOrder.Carrier }}</td>
+                <td>{{ ttOrder.Creditcard }}</td>
+                <td>{{ ttOrder.CustNum }}</td>
+                <td>{{ ttOrder.Instructions }}</td>
+                <!-- <td>{{ ttOrder.OrderDate }}</td>
+                <td>{{ ttOrder.OrderStatus }}</td>
+                <td>{{ ttOrder.Ordernum }}</td>
+                <td>{{ ttOrder.PO }}</td>
+                <td>{{ ttOrder.PromiseDate }}</td>
+                <td>{{ ttOrder.SalesRep }}</td>
+                <td>{{ ttOrder.ShipDate }}</td>
+                <td>{{ ttOrder.ShipToID }}</td>
+                <td>{{ ttOrder.Terms }}</td>
+                <td>{{ ttOrder.WarehouseNum }}</td> -->
+            </tr>
+        </tbody>
+    </table>
+
+</div>

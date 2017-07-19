@@ -6,8 +6,8 @@ import { ttOrder } from '../potso/ttOrder';
 
 @Component({
   selector: 'app-matmodule',
-  templateUrl: './matmodule.component.html',
-  styleUrls: ['./matmodule.component.css']
+  templateUrl: './matmodule.component/matmodule.component.html',
+  styleUrls: ['./matmodule.component/matmodule.component.css']
 })
 export class MatModuleComponent implements OnInit {
   public result: any;
