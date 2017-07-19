@@ -20,7 +20,6 @@ export class RepresentOrdersDataComponent implements OnInit {
 
   ttOrders: ttOrder[] = [];
   error: any;
-
   defaultPageToShow: number = 10;
   displayedColumns = [
     "BillToID", "Carrier", "Creditcard", "CustNum",
@@ -28,36 +27,27 @@ export class RepresentOrdersDataComponent implements OnInit {
     "PO", "PromiseDate", "SalesRep", "ShipDate", 
     "ShipToID", "Terms", "WarehouseNum",  */
   ];
+  ttOrderToEdit: ttOrder;
 
-  editTtOrder(ttOrderToEdit: ttOrder): void {
-    this._dialog.open(OpenEditDialogComponent);
-    console.log("Table row is double clicked!");
+  editTtOrder(ttOrderToEdit: ttOrder): void { // open dialog
+    // this._dialog.open(OpenEditDialogComponent);
+    let dialogRef = this._dialog.open(OpenEditDialogComponent, {
+      data: ttOrderToEdit,
+    });
+    dialogRef.afterClosed().subscribe(editedTtOrder => {
+      this.ttOrderToEdit = editedTtOrder;
+    });
+    // console.log("Table row is double clicked!");
   }
 
   ngOnInit() {
     this._getDataService.getUsers()
       .subscribe(
-        data => {
-          this.ttOrders = data;
-          console.log("Log 1. ttOrders in represent-orders-data in success: " 
-            + this.ttOrders[1].Carrier);
-        },
-        error => {
-          this.error = error;
-          console.log(error);
-        },
-        () => console.log("done")
+      data => this.ttOrders = data,
+      error => {
+        this.error = error; console.log("error: " + error);
+      }
+      // , () => console.log("Data is getted") // TODO: Need only to know if data getteb by observable
       );
-
-    console.log("Log 2. ttOrders in represent-orders-data: " + this.ttOrders);
   }
-
-  /* changePageToShow() {
-
-  }
-
-  getNextPart() {
-
-  }  */
-
 }

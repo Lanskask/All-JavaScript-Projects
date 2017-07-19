@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MdDialogRef } from '@angular/material';
+import { MD_DIALOG_DATA } from '@angular/material';
+
+import { ttOrder } from '../potso/ttOrder';
 
 @Component({
   selector: 'app-open-edit-dialog',
@@ -7,7 +11,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OpenEditDialogComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialogRef: MdDialogRef<OpenEditDialogComponent>
+    , @Inject(MD_DIALOG_DATA) public data: ttOrder
+  ) { }
+
+  ttOrderInDialog: ttOrder = this.data;
 
   ngOnInit() {
   }

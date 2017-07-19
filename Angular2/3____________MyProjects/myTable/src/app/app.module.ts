@@ -4,8 +4,10 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import 'hammerjs';
 import { MdTableModule, MdToolbarModule } from '@angular/material';
-import { MdDialog, MdDialogModule } from '@angular/material';
+import { MdDialog, MdDialogModule, MdInputModule,
+ } from '@angular/material';
 import {OVERLAY_PROVIDERS} from "@angular/material";
+import { NgForm, FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { GetDataService } from './services/get-data.service';
@@ -26,7 +28,9 @@ import { OpenEditDialogComponent }
     BrowserModule,
     BrowserAnimationsModule,
     HttpModule,
-    MdTableModule, MdToolbarModule, MdDialogModule
+    MdTableModule, MdToolbarModule, MdDialogModule,
+    FormsModule,
+    MdInputModule
   ],
   providers: [
     GetDataService, 
