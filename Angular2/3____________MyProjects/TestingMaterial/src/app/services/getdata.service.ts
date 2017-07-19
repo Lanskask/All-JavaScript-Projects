@@ -8,7 +8,7 @@ import { dsOrder } from '../potso/dsOrder'
 @Injectable()
 export class GetDataService {
 
-    private url1 = "./allBeOrderData.json";
+    private url1 = "../../assets/allBeOrderData.json";
     private url2 = 'http://192.168.0.29:8810/webAppExample/rest/webAppExampleService/beOrder';
 
     public allDsOrder: dsOrder;

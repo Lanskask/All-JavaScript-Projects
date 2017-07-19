@@ -5,7 +5,7 @@ import { MdDialog } from '@angular/material';
 import { dsOrder } from "../potso/dsOrder";
 import { ttOrder } from "../potso/ttOrder";
 
-import { OpenEditDialogComponent } from './open-edit-dialog/open-edit-dialog.component';
+import { OpenEditDialogComponent } from '../open-edit-dialog/open-edit-dialog.component';
 
 @Component({
   selector: 'app-represent-orders-data',
@@ -15,7 +15,7 @@ import { OpenEditDialogComponent } from './open-edit-dialog/open-edit-dialog.com
 export class RepresentOrdersDataComponent implements OnInit {
 
   constructor(private _getDataService: GetDataService
-    // , public _dialog: MdDialog
+    , public _dialog: MdDialog
   ) { }
 
   ttOrders: ttOrder[] = [];
@@ -30,7 +30,7 @@ export class RepresentOrdersDataComponent implements OnInit {
   ];
 
   editTtOrder(ttOrderToEdit: ttOrder): void {
-    // this._dialog.open(OpenEditDialogComponent);
+    this._dialog.open(OpenEditDialogComponent);
     console.log("Table row is double clicked!");
   }
 
