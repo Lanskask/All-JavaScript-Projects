@@ -11,11 +11,19 @@ import { ttOrder } from '../potso/ttOrder';
 })
 export class OpenEditDialogComponent implements OnInit {
 
-  constructor(public dialogRef: MdDialogRef<OpenEditDialogComponent>
-    , @Inject(MD_DIALOG_DATA) public data: ttOrder
+  constructor(
+    // public dialogRef: MdDialogRef<OpenEditDialogComponent>
+    @Inject(MD_DIALOG_DATA) public data: ttOrder
   ) { }
 
   ttOrderInDialog: ttOrder = this.data;
+  oldTtOrder: ttOrder = this.data;
+  newTtOrder: ttOrder;
+
+  saveBeOrder() {
+    this.newTtOrder = this.ttOrderInDialog;
+  }
+
 
   ngOnInit() {
   }

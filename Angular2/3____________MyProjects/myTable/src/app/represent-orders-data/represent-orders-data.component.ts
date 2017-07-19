@@ -47,7 +47,7 @@ export class RepresentOrdersDataComponent implements OnInit {
       error => {
         this.error = error; console.log("error: " + error);
       }
-      // , () => console.log("Data is getted") // TODO: Need only to know if data getteb by observable
+      , () => console.log("Data is getted") // TODO: Need only to know if data getteb by observable
       );
   }
 }
