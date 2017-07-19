@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MdDialog } from '@angular/material';
+import { MdDialog, MdDialogRef } from '@angular/material';
 import { BeOrderDialogComponent } from './be-order-dialog/be-order-dialog.component';
 
 import { ttOrder } from '../potso/ttOrder';

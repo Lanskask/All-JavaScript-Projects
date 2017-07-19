@@ -3,7 +3,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import 'hammerjs';
-
 import { MdTableModule, MdToolbarModule } from '@angular/material';
 import { MdDialog, MdDialogModule } from '@angular/material';
 import {OVERLAY_PROVIDERS} from "@angular/material";
