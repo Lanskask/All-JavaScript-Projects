@@ -11,11 +11,11 @@ import { ttOrder } from "../potso/ttOrder";
 })
 export class NgxExpComponent implements OnInit {
 
-  ttOrders: ttOrder[] = [];
+  // ttOrders: ttOrder[] = [];
+  ttOrders: ttOrder[];
   error:any;
-  // columns = "[{name:'BillToID'},{name:'Carrier'},{name:'Creditcard'},{name:'CustNum'},{name:'Instructions'},{name:'OrderDate'},{name:'OrderStatus'},{name:'Ordernum'},{name:'PO'},{name:'PromiseDate'},{name:'SalesRep'},{name:'ShipDate'},{name:'ShipToID'},{name:'Terms'},{name:'WarehouseNum'}]";
   // columns = [{name:'BillToID'},{name:'Carrier'},{name:'Creditcard'},{name:'CustNum'},{name:'Instructions'},{name:'OrderDate'},{name:'OrderStatus'},{name:'Ordernum'},{name:'PO'},{name:'PromiseDate'},{name:'SalesRep'},{name:'ShipDate'},{name:'ShipToID'},{name:'Terms'},{name:'WarehouseNum'}];
-  columns = [{name:'BillToID'},{name:'Carrier'},{name:'Creditcard'},{name:'CustNum'},{name:'Instructions'}];
+  columns = [{prop:'BillToID'},{prop:'Carrier'},{prop:'Creditcard'},{prop:'CustNum'},{prop:'Instructions'}];
 
   constructor(private _getDataService: GetDataService) { }
 

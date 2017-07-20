@@ -9,6 +9,7 @@ import { MdDialog, MdDialogModule, MdInputModule,
 import {OVERLAY_PROVIDERS} from "@angular/material";
 import { NgForm, FormsModule } from '@angular/forms';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 import { AppComponent } from './app.component';
 import { GetDataService } from './services/get-data.service';
@@ -32,7 +33,8 @@ import { OpenEditDialogComponent }
     HttpModule,
     MdTableModule, MdToolbarModule, MdDialogModule, MdInputModule,
     FormsModule,
-    NgxDatatableModule
+    NgxDatatableModule,
+    Ng2SmartTableModule
   ],
   providers: [
     GetDataService, 

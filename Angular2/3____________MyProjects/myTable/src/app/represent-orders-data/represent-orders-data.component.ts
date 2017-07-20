@@ -20,13 +20,6 @@ export class RepresentOrdersDataComponent implements OnInit {
 
   ttOrders: ttOrder[] = [];
   error: any;
-  defaultPageToShow: number = 10;
-  displayedColumns = [
-    "BillToID", "Carrier", "Creditcard", "CustNum",
-    /* "Instructions", "OrderDate", "OrderStatus", "Ordernum", 
-    "PO", "PromiseDate", "SalesRep", "ShipDate", 
-    "ShipToID", "Terms", "WarehouseNum",  */
-  ];
   ttOrderToEdit: ttOrder;
 
   editTtOrder(ttOrderToTransfer: ttOrder): void { // open dialog
