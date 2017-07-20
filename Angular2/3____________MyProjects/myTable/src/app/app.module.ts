@@ -8,9 +8,11 @@ import { MdDialog, MdDialogModule, MdInputModule,
  } from '@angular/material';
 import {OVERLAY_PROVIDERS} from "@angular/material";
 import { NgForm, FormsModule } from '@angular/forms';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { AppComponent } from './app.component';
 import { GetDataService } from './services/get-data.service';
+import { BasicFunctionsService } from './services/basic-functions.service';
 import { RepresentOrdersDataComponent }
   from './represent-orders-data/represent-orders-data.component';
 import { NgxExpComponent } from './ngx-exp/ngx-exp.component';
@@ -28,12 +30,13 @@ import { OpenEditDialogComponent }
     BrowserModule,
     BrowserAnimationsModule,
     HttpModule,
-    MdTableModule, MdToolbarModule, MdDialogModule,
+    MdTableModule, MdToolbarModule, MdDialogModule, MdInputModule,
     FormsModule,
-    MdInputModule
+    NgxDatatableModule
   ],
   providers: [
     GetDataService, 
+    BasicFunctionsService,
     MdDialog, 
     // OVERLAY_PROVIDERS
   ],

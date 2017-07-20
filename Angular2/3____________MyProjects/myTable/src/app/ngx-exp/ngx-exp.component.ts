@@ -13,15 +13,19 @@ export class NgxExpComponent implements OnInit {
 
   ttOrders: ttOrder[] = [];
   error:any;
+  // columns = "[{name:'BillToID'},{name:'Carrier'},{name:'Creditcard'},{name:'CustNum'},{name:'Instructions'},{name:'OrderDate'},{name:'OrderStatus'},{name:'Ordernum'},{name:'PO'},{name:'PromiseDate'},{name:'SalesRep'},{name:'ShipDate'},{name:'ShipToID'},{name:'Terms'},{name:'WarehouseNum'}]";
+  // columns = [{name:'BillToID'},{name:'Carrier'},{name:'Creditcard'},{name:'CustNum'},{name:'Instructions'},{name:'OrderDate'},{name:'OrderStatus'},{name:'Ordernum'},{name:'PO'},{name:'PromiseDate'},{name:'SalesRep'},{name:'ShipDate'},{name:'ShipToID'},{name:'Terms'},{name:'WarehouseNum'}];
+  columns = [{name:'BillToID'},{name:'Carrier'},{name:'Creditcard'},{name:'CustNum'},{name:'Instructions'}];
 
   constructor(private _getDataService: GetDataService) { }
 
   ngOnInit() {
-    this._getDataService.getUsers()
+    this._getDataService.getTtOrders()
       .subscribe(
       data => {
         this.ttOrders = data;
-        console.log("Log 1. ttOrders in represent-orders-data in success: " + this.ttOrders);
+        /* console.log("     Log 1. ttOrders in represent-orders-data in success: ");
+        console.log(this.ttOrders); */
       },
       error => {
         this.error = error;
@@ -30,5 +34,4 @@ export class NgxExpComponent implements OnInit {
       // , () => console.log("Resolved!")
       );
   }
-
 }

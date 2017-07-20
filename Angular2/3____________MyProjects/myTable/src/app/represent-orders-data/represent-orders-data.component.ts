@@ -30,21 +30,25 @@ export class RepresentOrdersDataComponent implements OnInit {
   ttOrderToEdit: ttOrder;
 
   editTtOrder(ttOrderToTransfer: ttOrder): void { // open dialog
-    // this._dialog.open(OpenEditDialogComponent);
     let ttOrderEditDialogRef = this._dialog.open(OpenEditDialogComponent
       , {data: ttOrderToTransfer,}
     );    
     ttOrderEditDialogRef.componentInstance.ttOrderToTransfer = ttOrderToTransfer;
-    this.ttOrderToEdit = ttOrderEditDialogRef.componentInstance.ttOrderToTransferBack;
+    // this.ttOrderToEdit = ttOrderEditDialogRef.componentInstance.ttOrderToTransferBack;
 
-    /* ttOrderEditDialogRef.afterClosed().subscribe(editedTtOrder => {
-      this.ttOrderToEdit = editedTtOrder;
-    }); */
-    console.log("Table row is double clicked! this.ttOrderToEdit: " + this.ttOrderToEdit);
+    ttOrderEditDialogRef.afterClosed().subscribe(
+      // editedTtOrder => this.ttOrderToEdit = editedTtOrder 
+      () => {
+        this.ttOrderToEdit = ttOrderEditDialogRef.componentInstance.ttOrderToTransferBack;
+        ttOrderToTransfer = this.ttOrderToEdit;
+        console.log("   ttOrderToEdit in RepresentOrdersDataComponent: ");
+        console.log(this.ttOrderToEdit);
+      }
+    );
   }
 
   ngOnInit() {
-    this._getDataService.getUsers()
+    this._getDataService.getTtOrders()
       .subscribe(
       data => this.ttOrders = data,
       error => {

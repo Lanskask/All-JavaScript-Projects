@@ -5,6 +5,7 @@ import { MD_DIALOG_DATA } from '@angular/material';
 import { ttOrder } from '../potso/ttOrder';
 import { RepresentOrdersDataComponent }
   from '../represent-orders-data/represent-orders-data.component';
+import { BasicFunctionsService } from '../services/basic-functions.service';
 
 @Component({
   selector: 'app-open-edit-dialog',
@@ -14,6 +15,7 @@ import { RepresentOrdersDataComponent }
 export class OpenEditDialogComponent implements OnInit {
 
   constructor(
+    public _basicFunctions: BasicFunctionsService, 
     public parentRepresenter: MdDialogRef<RepresentOrdersDataComponent>
     // @Inject(MD_DIALOG_DATA) public data: ttOrder
   ) { }
@@ -25,7 +27,8 @@ export class OpenEditDialogComponent implements OnInit {
 
   saveBeOrder() {
     this.ttOrderToTransferBack = this.newTtOrder;
-    console.log("saveBeOrder: " + (this.ttOrderToTransferBack === this.newTtOrder));
+    // console.log(this.newTtOrder);
+    // console.log("saveBeOrder: " + (this.ttOrderToTransferBack === this.newTtOrder));
   }
 
   onCancel() {
@@ -33,13 +36,8 @@ export class OpenEditDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.oldTtOrder = this.ttOrderToTransfer;
-    this.oldTtOrder = this.deepCopy(this.ttOrderToTransfer);
-    // this.newTtOrder = this.ttOrderToTransfer;
-    this.newTtOrder = this.deepCopy(this.ttOrderToTransfer);
+    this.oldTtOrder = this._basicFunctions.deepCopy(this.ttOrderToTransfer);
+    this.newTtOrder = this._basicFunctions.deepCopy(this.ttOrderToTransfer);
   }
 
-  deepCopy<T>(objectToCopy: T): T {
-    return JSON.parse(JSON.stringify(objectToCopy));
-  }
 }

@@ -16,7 +16,7 @@ export class GetDataService {
 
 	constructor(private _http: Http) { }
 
-	getUsers(): Observable<ttOrder[]> {
+	getTtOrders(): Observable<ttOrder[]> {
 		return this._http.get(this.url1)
 			.map((resp: Response) => {
 				let ttOrdersList = resp.json().dsOrder.ttOrder as ttOrder[];

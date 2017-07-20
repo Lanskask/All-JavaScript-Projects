@@ -1,3 +1,16 @@
-<p>
-  ngx-exp works!
-</p>
+<h1>
+  Ngx table:
+</h1>
+
+<div>
+  <ngx-datatable 
+    class="material" 
+    [rows]="ttOrders"
+    [columns]="columns" 
+    [columnMode]="'force'"
+    [headerHeight]="50" 
+    [footerHeight]="50" 
+    [rowHeight]="'auto'" 
+    [limit]="10">
+  </ngx-datatable>
+</div>
