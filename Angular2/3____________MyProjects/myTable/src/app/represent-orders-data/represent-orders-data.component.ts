@@ -29,12 +29,12 @@ export class RepresentOrdersDataComponent implements OnInit {
   ];
   ttOrderToEdit: ttOrder;
 
-  editTtOrder(ttOrderToEdit: ttOrder): void { // open dialog
+  editTtOrder(ttOrderToTransfer: ttOrder): void { // open dialog
     // this._dialog.open(OpenEditDialogComponent);
     let ttOrderEditDialogRef = this._dialog.open(OpenEditDialogComponent
-      , {data: ttOrderToEdit,}
+      , {data: ttOrderToTransfer,}
     );    
-    ttOrderEditDialogRef.componentInstance.ttOrderToTransfer = ttOrderToEdit;
+    ttOrderEditDialogRef.componentInstance.ttOrderToTransfer = ttOrderToTransfer;
     this.ttOrderToEdit = ttOrderEditDialogRef.componentInstance.ttOrderToTransferBack;
 
     /* ttOrderEditDialogRef.afterClosed().subscribe(editedTtOrder => {

@@ -3,7 +3,7 @@ import { MdDialogRef } from '@angular/material';
 import { MD_DIALOG_DATA } from '@angular/material';
 
 import { ttOrder } from '../potso/ttOrder';
-import { RepresentOrdersDataComponent } 
+import { RepresentOrdersDataComponent }
   from '../represent-orders-data/represent-orders-data.component';
 
 @Component({
@@ -22,19 +22,24 @@ export class OpenEditDialogComponent implements OnInit {
   newTtOrder: ttOrder;
   oldTtOrder: ttOrder;
   ttOrderToTransferBack: ttOrder;
-  
+
   saveBeOrder() {
     this.ttOrderToTransferBack = this.newTtOrder;
+    console.log("saveBeOrder: " + (this.ttOrderToTransferBack === this.newTtOrder));
   }
 
   onCancel() {
     this.ttOrderToTransferBack = this.oldTtOrder;
   }
 
-  ngOnInit() { 
-    this.oldTtOrder = this.ttOrderToTransfer;
-    this.newTtOrder = this.ttOrderToTransfer;
+  ngOnInit() {
+    // this.oldTtOrder = this.ttOrderToTransfer;
+    this.oldTtOrder = this.deepCopy(this.ttOrderToTransfer);
+    // this.newTtOrder = this.ttOrderToTransfer;
+    this.newTtOrder = this.deepCopy(this.ttOrderToTransfer);
   }
 
-
+  deepCopy<T>(objectToCopy: T): T {
+    return JSON.parse(JSON.stringify(objectToCopy));
+  }
 }
