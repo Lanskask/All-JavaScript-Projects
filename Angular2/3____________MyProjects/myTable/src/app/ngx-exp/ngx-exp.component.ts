@@ -41,6 +41,7 @@ export class NgxExpComponent implements OnInit {
   selected = [];
   ttOrderToEdit: ttOrder;
   ttOrderToTransfer: ttOrder;
+  newTtOrder: ttOrder;
 
   onSelect({ selected }) {
     console.log('Select Event', selected[0], this.selected);
@@ -61,6 +62,17 @@ export class NgxExpComponent implements OnInit {
         this.ttOrderToEdit = ttOrderEditDialogRef.componentInstance.ttOrderToTransferBack;
         this.ttOrderToTransfer = this.ttOrderToEdit;
         console.log("ttOrderToEdit in RepresentOrdersDataComponent: ", this.ttOrderToEdit);
+      }
+    );
+  }
+
+  addNewTtOrder() {
+    let ttOrderEditDialogRef = this._dialog.open( TtOrderEditDialogComponent );    
+
+    ttOrderEditDialogRef.afterClosed().subscribe(
+      editedTtOrder => {
+        this.newTtOrder = editedTtOrder;
+        console.log("newTtOrder in NgxExpComponent: ", this.newTtOrder);
       }
     );
   }
