@@ -19,6 +19,8 @@ import { RepresentOrdersDataComponent }
 import { NgxExpComponent } from './ngx-exp/ngx-exp.component';
 import { OpenEditDialogComponent } 
   from './represent-orders-data/open-edit-dialog/open-edit-dialog.component';
+import { TtOrderEditDialogComponent } from 
+  './ngx-exp/tt-order-edit-dialog/tt-order-edit-dialog.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { OpenEditDialogComponent }
     RepresentOrdersDataComponent,
     NgxExpComponent,
     OpenEditDialogComponent,
+    TtOrderEditDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,11 +43,11 @@ import { OpenEditDialogComponent }
     GetDataService, 
     BasicFunctionsService,
     MdDialog, 
-    // OVERLAY_PROVIDERS
   ],
   bootstrap: [AppComponent],
   entryComponents: [
-    OpenEditDialogComponent
+    OpenEditDialogComponent, 
+    TtOrderEditDialogComponent
   ]
 })
 export class AppModule { }

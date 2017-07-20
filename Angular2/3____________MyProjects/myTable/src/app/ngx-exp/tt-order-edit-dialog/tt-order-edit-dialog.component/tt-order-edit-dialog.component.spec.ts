@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OpenEditDialogComponent } from './open-edit-dialog.component';
+import { TtOrderEditDialogComponent } from '../tt-order-edit-dialog.component';
 
-describe('OpenEditDialogComponent', () => {
-  let component: OpenEditDialogComponent;
-  let fixture: ComponentFixture<OpenEditDialogComponent>;
+describe('TtOrderEditDialogComponent', () => {
+  let component: TtOrderEditDialogComponent;
+  let fixture: ComponentFixture<TtOrderEditDialogComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OpenEditDialogComponent ]
+      declarations: [ TtOrderEditDialogComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OpenEditDialogComponent);
+    fixture = TestBed.createComponent(TtOrderEditDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,18 +1,16 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MdDialogRef } from '@angular/material';
-import { MD_DIALOG_DATA } from '@angular/material';
 
 import { ttOrder } from '../../potso/ttOrder';
-import { RepresentOrdersDataComponent }
-  from '../represent-orders-data.component';
+import { NgxExpComponent } from '../ngx-exp.component';
 import { BasicFunctionsService } from '../../services/basic-functions.service';
 
 @Component({
-  selector: 'app-open-edit-dialog',
-  templateUrl: './open-edit-dialog/open-edit-dialog.component.html',
-  styleUrls: ['./open-edit-dialog/open-edit-dialog.component.css']
+  selector: 'app-tt-order-edit-dialog',
+  templateUrl: './tt-order-edit-dialog.component/tt-order-edit-dialog.component.html',
+  styleUrls: ['./tt-order-edit-dialog.component/tt-order-edit-dialog.component.css']
 })
-export class OpenEditDialogComponent implements OnInit {
+export class TtOrderEditDialogComponent implements OnInit {
 
   ttOrderToTransfer: ttOrder;
   newTtOrder: ttOrder;
@@ -21,14 +19,13 @@ export class OpenEditDialogComponent implements OnInit {
 
   constructor(
     public _basicFunctions: BasicFunctionsService, 
-    public parentRepresenter: MdDialogRef<RepresentOrdersDataComponent>
-    // @Inject(MD_DIALOG_DATA) public data: ttOrder
+    public parentNgxExpTable: MdDialogRef<NgxExpComponent>
   ) { }
 
   saveBeOrder() {
     this.ttOrderToTransferBack = this.newTtOrder;
-    // console.log(this.newTtOrder);
-    // console.log("saveBeOrder: " + (this.ttOrderToTransferBack === this.newTtOrder));
+    console.log("this.newTtOrder: ", this.newTtOrder);
+    console.log("this.ttOrderToTransferBack === this.newTtOrder: ", (this.ttOrderToTransferBack === this.newTtOrder));
   }
 
   onCancel() {
@@ -39,5 +36,4 @@ export class OpenEditDialogComponent implements OnInit {
     this.oldTtOrder = this._basicFunctions.deepCopy(this.ttOrderToTransfer);
     this.newTtOrder = this._basicFunctions.deepCopy(this.ttOrderToTransfer);
   }
-
 }
