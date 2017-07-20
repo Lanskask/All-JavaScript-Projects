@@ -31,13 +31,16 @@ export class RepresentOrdersDataComponent implements OnInit {
 
   editTtOrder(ttOrderToEdit: ttOrder): void { // open dialog
     // this._dialog.open(OpenEditDialogComponent);
-    let dialogRef = this._dialog.open(OpenEditDialogComponent, {
-      data: ttOrderToEdit,
-    });
-    dialogRef.afterClosed().subscribe(editedTtOrder => {
+    let ttOrderEditDialogRef = this._dialog.open(OpenEditDialogComponent
+      , {data: ttOrderToEdit,}
+    );    
+    ttOrderEditDialogRef.componentInstance.ttOrderToTransfer = ttOrderToEdit;
+    this.ttOrderToEdit = ttOrderEditDialogRef.componentInstance.ttOrderToTransferBack;
+
+    /* ttOrderEditDialogRef.afterClosed().subscribe(editedTtOrder => {
       this.ttOrderToEdit = editedTtOrder;
-    });
-    // console.log("Table row is double clicked!");
+    }); */
+    console.log("Table row is double clicked! this.ttOrderToEdit: " + this.ttOrderToEdit);
   }
 
   ngOnInit() {

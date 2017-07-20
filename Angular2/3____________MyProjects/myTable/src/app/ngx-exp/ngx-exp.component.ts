@@ -27,9 +27,8 @@ export class NgxExpComponent implements OnInit {
         this.error = error;
         console.log(error);
       }
+      // , () => console.log("Resolved!")
       );
-
-    console.log("Log 2. ttOrders in represent-orders-data" + this.ttOrders);
   }
 
 }

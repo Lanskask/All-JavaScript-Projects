@@ -14,27 +14,27 @@
         </div> -->
         <md-input-container>
           <input type="number" mdInput placeholder="BillToID" name="BillToID" 
-            [(ngModel)]="ttOrderInDialog.BillToID">
+            [(ngModel)]="newTtOrder.BillToID">
         </md-input-container>
 
         <md-input-container>
           <input type="string" mdInput placeholder="Carrier" name="Carrier" 
-            [(ngModel)]="ttOrderInDialog.Carrier">
+            [(ngModel)]="newTtOrder.Carrier">
         </md-input-container>
 
         <md-input-container>
           <input type="string" mdInput placeholder="Creditcard" name="Creditcard" 
-            [(ngModel)]="ttOrderInDialog.Creditcard">
+            [(ngModel)]="newTtOrder.Creditcard">
         </md-input-container>
 
         <md-input-container>
           <input type="number" mdInput placeholder="CustNum" name="CustNum" 
-            [(ngModel)]="ttOrderInDialog.CustNum">
+            [(ngModel)]="newTtOrder.CustNum">
         </md-input-container>
 
         <md-input-container>
           <input type="string" mdInput placeholder="Instructions" name="Instructions" 
-            [(ngModel)]="ttOrderInDialog.Instructions">
+            [(ngModel)]="newTtOrder.Instructions">
         </md-input-container>
       </md-tab>
 
@@ -80,26 +80,15 @@
         </md-input-container>
       </md-tab> -->
     </md-tab-group>
-
-    <!-- <div class="form-group">
-    <input type="checkbox" name="queued" [(ngModel)]="task.queued">
-    <label for="queued"> 
-      this task by default?
-    </label>
-  </div> -->
-
-
-    <!-- <md-dialog-actions>
-    <input type="submit" class="btn btn-success" value="Save">
-    <a [routerLink]="['TaskList']" class="btn btn-danger">
-    Cancel
-    </a>
-  </md-dialog-actions>  -->
   </form>
 </md-dialog-content>
 
 <md-dialog-actions>
-  <button md-button md-dialog-close>Cancel</button>
-  <button [md-dialog-close]="true" [disabled]="BeOrderDialogForm.invalid" 
-    class="btn btn-default" (click)="submit(myForm)">Save</button>
+  <button class="btn btn-default" md-button md-dialog-close (click)=onCancel(myForm)>
+    Cancel
+  </button>
+  <!-- [disabled]="BeOrderDialogForm.invalid" [md-dialog-close]="true"   -->
+  <button class="btn btn-default" md-button md-dialog-close (click)="saveBeOrder(myForm)">
+    Save
+  </button>
 </md-dialog-actions>

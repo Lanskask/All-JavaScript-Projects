@@ -3,6 +3,8 @@ import { MdDialogRef } from '@angular/material';
 import { MD_DIALOG_DATA } from '@angular/material';
 
 import { ttOrder } from '../potso/ttOrder';
+import { RepresentOrdersDataComponent } 
+  from '../represent-orders-data/represent-orders-data.component';
 
 @Component({
   selector: 'app-open-edit-dialog',
@@ -12,20 +14,27 @@ import { ttOrder } from '../potso/ttOrder';
 export class OpenEditDialogComponent implements OnInit {
 
   constructor(
-    // public dialogRef: MdDialogRef<OpenEditDialogComponent>
-    @Inject(MD_DIALOG_DATA) public data: ttOrder
+    public parentRepresenter: MdDialogRef<RepresentOrdersDataComponent>
+    // @Inject(MD_DIALOG_DATA) public data: ttOrder
   ) { }
 
-  ttOrderInDialog: ttOrder = this.data;
-  oldTtOrder: ttOrder = this.data;
+  ttOrderToTransfer: ttOrder;
   newTtOrder: ttOrder;
-
+  oldTtOrder: ttOrder;
+  ttOrderToTransferBack: ttOrder;
+  
   saveBeOrder() {
-    this.newTtOrder = this.ttOrderInDialog;
+    this.ttOrderToTransferBack = this.newTtOrder;
   }
 
-
-  ngOnInit() {
+  onCancel() {
+    this.ttOrderToTransferBack = this.oldTtOrder;
   }
+
+  ngOnInit() { 
+    this.oldTtOrder = this.ttOrderToTransfer;
+    this.newTtOrder = this.ttOrderToTransfer;
+  }
+
 
 }
