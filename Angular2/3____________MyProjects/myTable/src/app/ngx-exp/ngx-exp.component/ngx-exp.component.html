@@ -11,6 +11,10 @@
     [headerHeight]="50" 
     [footerHeight]="50" 
     [rowHeight]="'auto'" 
-    [limit]="10">
+    [limit]="10"
+    [selected]="selected"
+    [selectionType]="'single'"
+    (select)='onSelect($event)'
+    (dblclick)="editTtOrder($event)">
   </ngx-datatable>
 </div>

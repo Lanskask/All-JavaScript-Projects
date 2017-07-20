@@ -1,0 +1,92 @@
+<h2 md-dialog-title>Edit beOrder</h2>
+<md-dialog-content>
+  <form name="BeOrderDialogForm" #BeOrderDialogForm="ngForm" 
+      class="container" (submit)="saveBeOrder()" novalidate>
+    <h3 md-dialog-title>BeOrder Editor:</h3>
+
+    <md-tab-group>
+      <md-tab label="Обязательные">
+
+        <!--   <div class="form-group">
+          <input type="date" class="form-control" [(ngModel)]="task.deadline">
+        </div> -->
+        <md-input-container>
+          <input type="number" mdInput placeholder="BillToID" name="BillToID" 
+            [(ngModel)]="newTtOrder.BillToID">
+        </md-input-container>
+
+        <md-input-container>
+          <input type="string" mdInput placeholder="Carrier" name="Carrier" 
+            [(ngModel)]="newTtOrder.Carrier">
+        </md-input-container>
+
+        <md-input-container>
+          <input type="string" mdInput placeholder="Creditcard" name="Creditcard" 
+            [(ngModel)]="newTtOrder.Creditcard">
+        </md-input-container>
+
+        <md-input-container>
+          <input type="number" mdInput placeholder="CustNum" name="CustNum" 
+            [(ngModel)]="newTtOrder.CustNum">
+        </md-input-container>
+
+        <md-input-container>
+          <input type="string" mdInput placeholder="Instructions" name="Instructions" 
+            [(ngModel)]="newTtOrder.Instructions">
+        </md-input-container>
+      </md-tab>
+
+      <!-- <md-tab label="Не обязательные">
+        <md-input-container>
+          <input type="string" mdInput placeholder="OrderDate" name="OrderDate" [(ngModel)]="ttOrderInDialog.OrderDate">
+        </md-input-container>
+
+        <md-input-container>
+          <input type="string" mdInput placeholder="OrderStatus" name="OrderStatus" [(ngModel)]="ttOrderInDialog.OrderStatus">
+        </md-input-container>
+
+        <md-input-container>
+          <input type="number" mdInput placeholder="Ordernum" name="Ordernum" [(ngModel)]="ttOrderInDialog.Ordernum">
+        </md-input-container>
+
+        <md-input-container>
+          <input type="number" mdInput placeholder="PO" name="PO" [(ngModel)]="ttOrderInDialog.PO">
+        </md-input-container>
+
+        <md-input-container>
+          <input type="string" mdInput placeholder="PromiseDate" name="PromiseDate" [(ngModel)]="ttOrderInDialog.PromiseDate">
+        </md-input-container>
+
+        <md-input-container>
+          <input type="string" mdInput placeholder="SalesRep" name="SalesRep" [(ngModel)]="ttOrderInDialog.SalesRep">
+        </md-input-container>
+
+        <md-input-container>
+          <input type="string" mdInput placeholder="ShipDate" name="ShipDate" [(ngModel)]="ttOrderInDialog.ShipDate">
+        </md-input-container>
+
+        <md-input-container>
+          <input type="number" mdInput placeholder="ShipToID" name="ShipToID" [(ngModel)]="ttOrderInDialog.ShipToID">
+        </md-input-container>
+
+        <md-input-container>
+          <input type="string" mdInput placeholder="Terms" name="Terms" [(ngModel)]="ttOrderInDialog.Terms">
+        </md-input-container>
+
+        <md-input-container>
+          <input type="number" mdInput placeholder="WarehouseNum" name="WarehouseNum" [(ngModel)]="ttOrderInDialog.WarehouseNum">
+        </md-input-container>
+      </md-tab> -->
+    </md-tab-group>
+  </form>
+</md-dialog-content>
+
+<md-dialog-actions>
+  <button class="btn btn-default" md-button md-dialog-close (click)=onCancel(myForm)>
+    Cancel
+  </button>
+  <!-- [disabled]="BeOrderDialogForm.invalid" [md-dialog-close]="true"   -->
+  <button class="btn btn-default" md-button md-dialog-close (click)="saveBeOrder(myForm)">
+    Save
+  </button>
+</md-dialog-actions>

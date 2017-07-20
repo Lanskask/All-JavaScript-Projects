@@ -34,4 +34,15 @@ export class NgxExpComponent implements OnInit {
       // , () => console.log("Resolved!")
       );
   }
+
+  selected = [];
+
+  onSelect({ selected }) {
+    console.log('Select Event', selected[0], this.selected);
+  }
+
+  editTtOrder({ selected }) {
+
+  }
+
 }

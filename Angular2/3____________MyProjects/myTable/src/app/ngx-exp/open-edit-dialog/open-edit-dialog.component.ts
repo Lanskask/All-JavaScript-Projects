@@ -2,10 +2,10 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MdDialogRef } from '@angular/material';
 import { MD_DIALOG_DATA } from '@angular/material';
 
-import { ttOrder } from '../potso/ttOrder';
+import { ttOrder } from '../../potso/ttOrder';
 import { RepresentOrdersDataComponent }
-  from '../represent-orders-data/represent-orders-data.component';
-import { BasicFunctionsService } from '../services/basic-functions.service';
+  from '..//represent-orders-data.component';
+import { BasicFunctionsService } from '../../services/basic-functions.service';
 
 @Component({
   selector: 'app-open-edit-dialog',

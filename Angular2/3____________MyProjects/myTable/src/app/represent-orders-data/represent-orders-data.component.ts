@@ -5,7 +5,7 @@ import { MdDialog } from '@angular/material';
 import { dsOrder } from "../potso/dsOrder";
 import { ttOrder } from "../potso/ttOrder";
 
-import { OpenEditDialogComponent } from '../open-edit-dialog/open-edit-dialog.component';
+import { OpenEditDialogComponent } from './open-edit-dialog/open-edit-dialog.component';
 
 @Component({
   selector: 'app-represent-orders-data',

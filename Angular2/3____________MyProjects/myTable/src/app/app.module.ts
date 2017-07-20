@@ -18,7 +18,7 @@ import { RepresentOrdersDataComponent }
   from './represent-orders-data/represent-orders-data.component';
 import { NgxExpComponent } from './ngx-exp/ngx-exp.component';
 import { OpenEditDialogComponent } 
-  from './open-edit-dialog/open-edit-dialog.component';
+  from './represent-orders-data/open-edit-dialog/open-edit-dialog.component';
 
 @NgModule({
   declarations: [
