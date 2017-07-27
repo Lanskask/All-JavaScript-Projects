@@ -1,0 +1,80 @@
+
+// progress.jsdo.unmin80.js
+
+function getResponseHeaderNoError
+	"Session.login() is missing the serviceURI argument."
+
+// p 8423
+var jsonObject;
+            params.statusFromjson = null;
+            try {
+                jsonObject = JSON.parse(params.xhr.responseText);
+                if (jsonObject.status_code !== undefined &&
+                    jsonObject.status_txt !== undefined) {
+                    params.statusFromjson = jsonObject.status_code
+                }
+
+
+// In CloudDataObject API
+Revert all changed records back to their original values before any
+changes were made since the last fill(), read(), acceptRowChanges()
+or acceptChanges() method.
+
+
+// progress.jsdo.unmin80.js 2933
+this.saveChanges = function(useSubmit) {
+
+// 596
+msg.msgs.jsdoMSG101 = "Network error while executing HTTP request.";
+
+
+// 2491
+this._httpRequest = function(xhr, method, url, reqBody, request) {
+            if (!xhr) {
+                xhr = new XMLHttpRequest();
+                xhr.onCompleteFn = this._invokeComplete;
+                xhr.onSuccessFn = this._invokeSuccess;
+                xhr.onErrorFn = this._invokeError;
+                xhr.onreadystatechange = this.onReadyStateChangeGeneric;
+                if (request.async && request.fnName) {
+                    this.trigger("beforeInvoke", request.fnName,
+                        this, request)
+                }
+                if (reqBody) {
+                    if (this._resource && this._resource.service) {
+                        var useRequest = this._resource.service.useRequest;
+                        if (this._resource.service.settings && this
+                            ._resource.service.settings.useRequest !==
+                            undefined) {
+                            useRequest = this._resource.service.settings
+                                .useRequest
+                        }
+                        if (useRequest) {
+                            reqBody = {
+                                request: reqBody
+                            }
+                        }
+                    }
+                }
+            }
+            xhr.request = request;
+            xhr.jsdo = this;
+            request.jsdo = this;
+            request.xhr = xhr;
+            this._session._openRequest(xhr, method, url, request.async);
+            var input = null;
+            if (reqBody) {
+                xhr.setRequestHeader("Content-Type",
+                    "application/json; charset=utf-8");
+                input = JSON.stringify(reqBody)
+            }
+            try {
+                xhr.send(input)
+            } catch (e) {
+                request.success = false;
+                request.exception = e;
+                xhr.jsdo._session._checkServiceResponse(xhr,
+                    request.success, request)
+            }
+            return request
+        };
