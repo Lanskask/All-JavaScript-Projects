@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="http://demos.telerik.com/kendo-ui/grid/index">
+    <style>html { font-size: 12px; font-family: Arial, Helvetica, sans-serif; }</style>
+    <title>Sales per Person - Year 2014</title>
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.default.min.css" />    
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.dataviz.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.dataviz.default.min.css" />
+
+    <script src="http://cdn.kendostatic.com/2015.1.429/js/jquery.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2015.1.429/js/kendo.all.min.js"></script>
+
+    <script src="http://oemobiledemo.progress.com/jsdo/progress.all.4.0.min.js"></script>
+</head>
+<body>
+    <div id="example">
+        <div id="chart" style="background: center no-repeat url('http://demos.telerik.com/kendo-ui/content/shared/styles/world-map.png');"></div>      
+        <div id="grid"></div>
+
+    </div>
+    
+    <script>
+        /*global kendo, $, console*/
+        function createJSDOInstance(options) {
+            var jsdosession,
+                jsdo,
+                promise;
+
+            try {
+                // create a new session object
+                jsdosession = new progress.data.JSDOSession(options);
+                promise = jsdosession.login("", "");
+                    
+                promise.done(function(jsdosession, result, info){
+                    jsdosession.addCatalog(options.catalogURIs)
+                        .done(function(jsdosession, result, details){                        
+                            jsdo = new progress.data.JSDO({ name: options.resourceName });
+                            
+                            if (typeof(options.callback) === "function"){
+                                options.callback(jsdo);
+                            }
+                        })
+                        .fail(function(jsdosession, result, details){
+                            alert("Error while executing addCatalog().");
+                    });
+                });
+                promise.fail(function(jsdosession, result, info){
+                    alert("Error while executing login().");      
+                });        
+            }
+            catch (e) {
+                alert("Error instantiating objects: " + e);
+            }                           
+        }
+
+		function calculateSeries(salesRep, ttSales) {
+            var data = [],
+                series,
+                i,
+                maximum = 0;
+
+            for (i = 0; i < 12; i += 1) {
+                data[i] = 0;
+            }
+            for (i = 0; i < ttSales.length; i += 1) {
+                data[ttSales[i].Month] += ttSales[i].Sales;
+                if (ttSales[i].Sales > maximum) {
+                    maximum = ttSales[i].Sales;
+                }
+            }
+
+			series = [{
+                name: "Sales",
+				data: data,
+                maximum: maximum
+			}];
+			return series;
+		}
+
+        function createChart(series, title, maximum) {
+            $("#chart").kendoChart({
+                title: {
+                    text: title
+                },
+                legend: {
+                    visible: false
+                },
+                seriesDefaults: {
+                    type: "column"
+                },
+                series: series,
+                valueAxis: {
+                    max: maximum,
+                    line: {
+                        visible: false
+                    },
+                    minorGridLines: {
+                        visible: true
+                    }
+                },
+                categoryAxis: {
+                    categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                    majorGridLines: {
+                        visible: true
+                    }
+                },
+                tooltip: {
+                    visible: true,
+                    template: "#= series.name #: #= value #"
+                }
+            });
+        }
+
+        function onAfterInvokeMonthlySales(jsdo, success, request) {
+            var series, title;
+
+            series = calculateSeries(request.objParam.pcSalesRep, request.response.ttSales.ttSales);
+            if (request.objParam.pcSalesRep) {
+                title = "Sales for " + request.objParam.pcSalesRep + " - Year 2014";
+            } else {
+                title = "Monthly Sales - Year 2014";
+            }
+            createChart(series, title, series.maximum);
+        }
+
+        function createGrid(jsdo_salesRep) {
+            var jsdo_orderOrderLine;
+
+            // Create Kendo UI Grid
+            $("#grid").kendoGrid({
+                dataSource: {
+                    type: "jsdo",
+                    transport: {
+                        jsdo: jsdo_salesRep
+                    },
+                    error: function (e) {
+                        console.log("Error: ", e);
+                    }
+                },
+                height: 350,
+                selectable: true,
+                groupable: true,
+                sortable: true,
+                reorderable: true,
+                resizable: true,
+                pageable: {
+                    refresh: true,
+                    pageSizes: true,
+                    pageSize: 10,
+                    buttonCount: 5
+                },
+                columns: [
+                    { field: "SalesRep", width: 100 },
+                    { field: "RepName" },
+                    { field: "Region" }
+                ],
+                change: function (e) {
+                    var grid = e.sender,
+                        selected = grid.select(),
+                        salesRep;
+
+                    if (selected.length === 1) {
+                        salesRep = grid.dataSource.getByUid(selected[0].getAttribute("data-uid")).SalesRep;
+                    }
+
+                    if (jsdo_orderOrderLine === undefined) {
+                        // Create JSDO instance for OrderOrderLine
+                        jsdo_orderOrderLine = createJSDOInstance({
+                            serviceURI: "http://oemobiledemo.progress.com/OrderOrderLineService",
+                            catalogURIs: "http://oemobiledemo.progress.com/OrderOrderLineService/static/mobile/OrderOrderLineService.json",
+                            resourceName: "OrderOrderLine",
+                            callback: function(jsdo) {
+                                jsdo_orderOrderLine = jsdo;
+                                jsdo_orderOrderLine.subscribe('AfterInvoke', 'MonthlySales', onAfterInvokeMonthlySales, this);
+                                jsdo_orderOrderLine.MonthlySales({
+                                    pcSalesRep: salesRep,
+                                    piYear: 2014
+                                });                                
+                            }
+                        });
+                    }
+                    else {
+                        jsdo_orderOrderLine.MonthlySales({
+                            pcSalesRep: salesRep,
+                            piYear: 2014
+                        });
+                    }
+                },
+                dataBound: function (e) {
+                    var el = $("#grid"),
+                        grid = el.data("kendoGrid"),
+                        rows = el.find("tr");
+
+                    // rows[0] is the column headers                        
+                    // rows[1] corresponds to the first row in the Grid
+                    grid.select(rows[1]);
+                }
+            });
+        }
+
+        $(document).ready(function(){
+            // Create JSDO instance for SalesReps
+            createJSDOInstance({
+                serviceURI: "http://oemobiledemo.progress.com/GenericService",
+                catalogURIs: "http://oemobiledemo.progress.com/GenericService/rest/GenericService/catalog/SalesRep",
+                resourceName: "SalesRep",
+                callback: function(jsdo) {
+                    createGrid(jsdo);
+                }
+            });        
+        
+        });
+    </script>
+</body>
+</html>

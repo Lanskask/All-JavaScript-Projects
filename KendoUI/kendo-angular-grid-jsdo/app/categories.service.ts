@@ -1,7 +1,7 @@
 import { Component, ViewChild, Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable, BehaviorSubject } from 'rxjs/Rx';
- import {
+import {
     GridComponent,
     GridDataResult,
     DataStateChangeEvent,
