@@ -1,4 +1,78 @@
 
+// Fetch function
+
+    private fetch4(tableName: string, state: State): Observable<GridDataResult> {
+        let that = this;
+        
+        let query = {
+            skip: state.skip,
+            top: state.take
+        };
+
+        let promise = new Promise( function(resolve, reject) {
+            let afterFill = function(jsdo: any, success: any, request: any) {
+                jsdo.unsubscribe('AfterFill', afterFill, this);
+
+                if (success) {
+                    let data = jsdo.getData();
+
+                    if (query.top) {
+                        let afterInvoke = function(jsdo1: any, success1: any, request1: any): void {
+                            jsdo.unsubscribe('AfterInvoke', 'count', afterInvoke, this);
+
+                            resolve(<GridDataResult>{
+                                data: data,
+                                total: request1.response.numRecs
+                            });
+                        };
+                        jsdo.subscribe('AfterInvoke', 'count', afterInvoke, this);
+                        jsdo.count(query);
+                    } else {
+                        resolve( <GridDataResult> {
+                            data: data,
+                            total: data.length
+                        });
+                    }
+                } else {
+                    reject(new Error('Error while executing query'));
+                }
+            };
+
+            that.jsdo.subscribe('AfterFill', afterFill, this);
+            that.jsdo.fill(query);
+        });
+
+        let result = Observable.fromPromise(promise)
+            .map( (ret: GridDataResult) => ( 
+                <GridDataResult>{ data: ret.data, total: ret.total } 
+            ));
+
+        return result;
+    }
+
+// --- In Jsdo Scheme
+resourcename
+	tableName
+
+beKat
+	dskatalog
+
+beSubSpr
+	dssubspr
+
+beSubCard
+	dssubcard
+
+beSgroup
+	dssgroup
+
+beGgroup
+	dsggroup
+
+beDepart
+	dsdepart
+
+// ------------------------
 beSubSpr?_ts=
 
 150123642-2958414058-4
