@@ -1,0 +1,101 @@
+/* click button  */
+.click {
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none; 
+    color: #fff;
+    background-color: #4caf50;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.click:hover { background-color: #3e8e41;}
+
+.click:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666; 
+    transform: translateY(4px);   
+}
+
+/* Hover btn  */
+.hover {
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    color: #ffffff;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px; 
+}
+
+.hover span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.hover span:after {
+    content: "\00bb";
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.hover:hover span {
+    padding-right: 25px;
+}
+
+.hover:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+/* Ripple button  */
+.ripple {
+    position: relative;
+    background-color: #4caf50;
+    border: none;
+    font-size: 28px;
+    color: #ffffff;
+    padding: 15px 25px;
+    width: 200px;
+    text-align: center;
+
+    -webkit-transition-duration: 0.4s; /* Safari  */
+    transition-duration: 2s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.ripple:after {
+    content: "";
+    background: #90ee90;
+    display: block;
+    position: absolute;
+
+    margin-left: -30px !important; 
+    padding-top: 300px; 
+    padding-left: 300px; /* 350%;  */
+    margin-top: -120%; 
+    opacity: 0;
+    transition: all 2s;
+}
+
+.ripple:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s;
+}

@@ -1,0 +1,10 @@
+<kendo-grid
+    [data]="view | async"
+    [pageSize]="pageSize"
+    [skip]="skip"
+    [pageable]="true">
+    
+    <kendo-grid-column field="CustNum" width="100"></kendo-grid-column>
+    <kendo-grid-column field="Name" width="200"></kendo-grid-column>
+    <kendo-grid-column field="SalesRep"></kendo-grid-column>
+</kendo-grid>

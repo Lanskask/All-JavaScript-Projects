@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>html { font-size: 12px; font-family: Arial, Helvetica, sans-serif; }</style>
+    <title>Sales per Person - Year 2014</title>
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.default.min.css" />    
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.dataviz.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.dataviz.default.min.css" />
+
+    <script src="http://cdn.kendostatic.com/2015.1.429/js/jquery.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2015.1.429/js/kendo.all.min.js"></script>
+
+    <script src="http://oemobiledemo.progress.com/jsdo/progress.all.4.0.min.js"></script>
+</head>
+<body>
+<div id="example">
+    <div class="demo-section k-content">
+        <div id="chart" style="background: center no-repeat url('http://demos.telerik.com/kendo-ui/content/shared/styles/world-map.png');"></div>        
+    </div>
+    <script>
+        /*global kendo, $*/
+		function calculateSeries(ttSales) {
+            var data = [],
+                colors = [ "#9de219", "#90cc38", "#068c35", "#006634", "#004d38", "#033939" ],
+                salesRep = "",
+                total = 0.0,
+                subtotal = 0.0,
+                count = 0,
+                i,
+                series;
+
+            for (i = 0; i < ttSales.length; i++) {
+                if (salesRep !== ttSales[i].SalesRep) {
+                    if (salesRep !== "") {
+                        total += subtotal;
+                        data.push({
+                            category: salesRep,
+							value: subtotal,
+                            color: colors[count / colors.length]
+                        });
+                        count++;
+                    }
+                    salesRep = ttSales[i].SalesRep;
+                    subtotal = ttSales[i].Sales;
+                } else {
+                    subtotal += ttSales[i].Sales;
+                }
+            }
+            if (salesRep !== "") {
+                total += subtotal;
+                data.push({
+                    category: salesRep,
+                    value: subtotal,
+                    color: colors[count / colors.length]
+                });
+            }
+
+            for (i = 0; i < data.length; i++) {
+				data[i].value = data[i].value * 100 / total;
+                data[i].value = Math.round(data[i].value * 100) / 100;
+			}
+
+			series = [{
+				type: "pie",
+				startAngle: 150,
+				data: data
+			}];
+			return series;
+		}
+
+        function createChart(series) {
+            $("#chart").kendoChart({
+                title: {
+                    position: "bottom",
+                    text: "Sales per Person - Year 2014"
+                },
+                legend: {
+                    visible: false
+                },
+                chartArea: {
+                    background: ""
+                },
+                seriesDefaults: {
+                    labels: {
+                        visible: true,
+                        background: "transparent",
+                        template: "#= category #: \n #= value#%"
+                    }
+                },
+                series: series,
+                tooltip: {
+                    visible: true,
+                    format: "{0}%"
+                }
+            });
+        }
+
+        function onAfterInvokeMonthlySales(jsdo, success, request) {
+        // Access ttSales temp-table parameter which contains temp-table object ttSales
+            var series = calculateSeries(request.response.ttSales.ttSales);
+            createChart(series);
+        }
+
+        try {
+            var serviceURI = "http://oemobiledemo.progress.com/OrderOrderLineService",
+                jsdoSettings = {
+                    serviceURI: serviceURI,
+                    catalogURIs: serviceURI + "/static/mobile/OrderOrderLineService.json"
+                },
+                jsdosession,
+                jsdo,
+                promise;
+
+            // create a new session object
+            jsdosession = new progress.data.JSDOSession(jsdoSettings);
+            promise = jsdosession.login("", "");
+                
+            promise.done(function(jsdosession, result, info){
+                jsdosession.addCatalog(jsdoSettings.catalogURIs)
+                    .done(function(jsdosession, result, details){                        
+                        jsdo = new progress.data.JSDO({ name: 'OrderOrderLine' });
+                        jsdo.subscribe('AfterInvoke', 'MonthlySales', onAfterInvokeMonthlySales, this);
+                        jsdo.MonthlySales({piYear: 2014});
+
+                        $(document).ready(createChart);
+                        $(document).bind("kendo:skinChange", createChart);
+                    })
+                    .fail(function(jsdosession, result, details){
+                        alert("Error while executing addCatalog().");
+                });
+            });
+            promise.fail(function(jsdosession, result, info){
+                alert("Error while executing login().");      
+            });        
+        }
+        catch (e) {
+            alert("Error instantiating objects: " + e);
+        }                
+    </script>
+</div>
+
+</body>
+</html>
