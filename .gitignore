@@ -2,5 +2,9 @@
 
 **/node_modules/*
 bower_components/
+node_modules/
 
 ReactJS/*/build
+*.rar
+*.zip
+0git

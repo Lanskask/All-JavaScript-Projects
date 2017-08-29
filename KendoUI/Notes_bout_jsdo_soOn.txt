@@ -1,0 +1,334 @@
+
+// Fetch function
+
+    private fetch4(tableName: string, state: State): Observable<GridDataResult> {
+        let that = this;
+        
+        let query = {
+            skip: state.skip,
+            top: state.take
+        };
+
+        let promise = new Promise( function(resolve, reject) {
+            let afterFill = function(jsdo: any, success: any, request: any) {
+                jsdo.unsubscribe('AfterFill', afterFill, this);
+
+                if (success) {
+                    let data = jsdo.getData();
+
+                    if (query.top) {
+                        let afterInvoke = function(jsdo1: any, success1: any, request1: any): void {
+                            jsdo.unsubscribe('AfterInvoke', 'count', afterInvoke, this);
+
+                            resolve(<GridDataResult>{
+                                data: data,
+                                total: request1.response.numRecs
+                            });
+                        };
+                        jsdo.subscribe('AfterInvoke', 'count', afterInvoke, this);
+                        jsdo.count(query);
+                    } else {
+                        resolve( <GridDataResult> {
+                            data: data,
+                            total: data.length
+                        });
+                    }
+                } else {
+                    reject(new Error('Error while executing query'));
+                }
+            };
+
+            that.jsdo.subscribe('AfterFill', afterFill, this);
+            that.jsdo.fill(query);
+        });
+
+        let result = Observable.fromPromise(promise)
+            .map( (ret: GridDataResult) => ( 
+                <GridDataResult>{ data: ret.data, total: ret.total } 
+            ));
+
+        return result;
+    }
+
+// --- In Jsdo Scheme
+resourcename
+	tableName
+
+beKat
+	dskatalog
+
+beSubSpr
+	dssubspr
+
+beSubCard
+	dssubcard
+
+beSgroup
+	dssgroup
+
+beGgroup
+	dsggroup
+
+beDepart
+	dsdepart
+
+// ------------------------
+beSubSpr?_ts=
+
+150123642-2958414058-4
+
+150 123 642
+	-295 841 4058 
+	-4
+
+// -----------------------
+$(document).ready( function () {
+	$('#grid').kendoGrid({
+		dataSource: {
+			schema: {
+				model: {
+					id: "customerId"
+				}
+			},
+			pageSize: 20,
+			transport: { read: "babla-bla/service/Customers"},
+			type: "odata"
+		},
+		height: 550,
+		persistenceSelection: true,
+		selectable: "multiple",
+		groupable: true,
+		sortaable: true,
+		pageble: {
+			refresh: true,
+			pageSizes: true,
+			buttonCount: 5
+		},
+	})
+})
+
+// Request Respons #2
+	{
+        "startedDateTime": "2017-07-28T10:08:51.685Z",
+        "time": 55.153000001155306,
+        "request": {
+          "method": "DELETE",
+          "url": "http://192.168.0.190:8810/webAppTry/rest/webAppTryService/beSubSpr?_ts=150123642-2958414058-4",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Origin",
+              "value": "http://localhost:8810"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate"
+            },
+            {
+              "name": "Host",
+              "value": "192.168.0.190:8810"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json; charset=UTF-8"
+            },
+            {
+              "name": "Accept",
+              "value": "*/*"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:8810/webAppTry/static/KendoUIGrid_beSubSpr.html"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Content-Length",
+              "value": "272"
+            }
+          ],
+          "queryString": [
+            {
+              "name": "_ts",
+              "value": "150123642-2958414058-4"
+            }
+          ],
+          "cookies": [],
+          "headersSize": 539,
+          "bodySize": 248,
+          "postData": {
+            "mimeType": "application/json; charset=UTF-8",
+            "text": "{\"ttsubspr\":[{\"npar\":5,\"namepar\":\"Страна производства товара\",\"partype\":\"char\",\"flag-un\":false,\"flagman\":false,\"ShortName\":\"\",\"Description\":\"\",\"cod_meas\":-1,\"perm_create\":\"*\",\"perm_update\":\"*\",\"perm_delete\":\"*\",\"_id\":\"1501236420116-2\",\"_index\":1}]}"
+          }
+        },
+
+// Post data to the oep server
+	{
+        "startedDateTime": "2017-07-28T12:29:09.677Z",
+        "time": 163.89999999955762,
+        "request": {
+          "method": "POST",
+          "url": "http://192.168.0.190:8810/webAppTry/rest/webAppTryService/beSubSpr?_ts=150123642-2958414058-6",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Origin",
+              "value": "http://localhost:8810"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate"
+            },
+            {
+              "name": "Host",
+              "value": "192.168.0.190:8810"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json; charset=UTF-8"
+            },
+            {
+              "name": "Accept",
+              "value": "*/*"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:8810/webAppTry/static/KendoUIGrid_beSubSpr.html"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Content-Length",
+              "value": "235"
+            }
+          ],
+          "queryString": [
+            {
+              "name": "_ts",
+              "value": "150123642-2958414058-6"
+            }
+          ],
+          "cookies": [],
+          "headersSize": 537,
+          "bodySize": 223,
+          "postData": {
+            "mimeType": "application/json; charset=UTF-8",
+            "text": "{\"ttsubspr\":[{\"npar\":1,\"namepar\":\"фыафыафыафыа\",\"partype\":\"char\",\"flag-un\":false,\"flagman\":true,\"ShortName\":\"\",\"Description\":\"\",\"cod_meas\":-1,\"perm_create\":\"*\",\"perm_update\":\"*\",\"perm_delete\":\"*\",\"_id\":\"1501236420116-71\"}]}"
+          }
+        },
+
+// =============================================
+// Customizing kendo (jQuery) grid
+dataSource: {
+	transport: {
+		read: {
+			url: "data/people.json"
+		}
+	},
+	schema: {
+		data: "data",
+		total: "count"
+	},
+	pageSize: 5
+}
+
+// --------------------------------
+// progress.jsdo.unmin80.js
+
+function getResponseHeaderNoError
+	"Session.login() is missing the serviceURI argument."
+
+// p 8423
+var jsonObject;
+            params.statusFromjson = null;
+            try {
+                jsonObject = JSON.parse(params.xhr.responseText);
+                if (jsonObject.status_code !== undefined &&
+                    jsonObject.status_txt !== undefined) {
+                    params.statusFromjson = jsonObject.status_code
+                }
+
+
+// In CloudDataObject API
+Revert all changed records back to their original values before any
+changes were made since the last fill(), read(), acceptRowChanges()
+or acceptChanges() method.
+
+
+// progress.jsdo.unmin80.js 2933
+this.saveChanges = function(useSubmit) {
+
+// 596
+msg.msgs.jsdoMSG101 = "Network error while executing HTTP request.";
+
+
+// 2491
+this._httpRequest = function(xhr, method, url, reqBody, request) {
+            if (!xhr) {
+                xhr = new XMLHttpRequest();
+                xhr.onCompleteFn = this._invokeComplete;
+                xhr.onSuccessFn = this._invokeSuccess;
+                xhr.onErrorFn = this._invokeError;
+                xhr.onreadystatechange = this.onReadyStateChangeGeneric;
+                if (request.async && request.fnName) {
+                    this.trigger("beforeInvoke", request.fnName,
+                        this, request)
+                }
+                if (reqBody) {
+                    if (this._resource && this._resource.service) {
+                        var useRequest = this._resource.service.useRequest;
+                        if (this._resource.service.settings && this
+                            ._resource.service.settings.useRequest !==
+                            undefined) {
+                            useRequest = this._resource.service.settings
+                                .useRequest
+                        }
+                        if (useRequest) {
+                            reqBody = {
+                                request: reqBody
+                            }
+                        }
+                    }
+                }
+            }
+            xhr.request = request;
+            xhr.jsdo = this;
+            request.jsdo = this;
+            request.xhr = xhr;
+            this._session._openRequest(xhr, method, url, request.async);
+            var input = null;
+            if (reqBody) {
+                xhr.setRequestHeader("Content-Type",
+                    "application/json; charset=utf-8");
+                input = JSON.stringify(reqBody)
+            }
+            try {
+                xhr.send(input)
+            } catch (e) {
+                request.success = false;
+                request.exception = e;
+                xhr.jsdo._session._checkServiceResponse(xhr,
+                    request.success, request)
+            }
+            return request
+        };

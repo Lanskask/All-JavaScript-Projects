@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple JSDO Usage</title>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="http://oemobiledemo.progress.com/jsdo/progress.all.4.0.min.js"></script>
+
+</head>
+<body>
+	<!-- results will be written here by JavaScript -->
+	<script>
+		(function () {
+        
+            // this function is called after data is returned from the server
+            function onAfterFillCustomers(jsdo, success, request) {
+                // for each customer record returned
+                jsdo.eCustomer.foreach(function (customer) {
+                    // write out some of the customer data to the page
+                    document.write(customer.data.CustNum + ' ' + customer.data.Name + '<br>');
+                });
+            }
+                
+            try {
+                var serviceURI = "http://oemobiledemo.progress.com/MobilityDemoService",
+                    jsdoSettings = {
+                        serviceURI: serviceURI,
+                        catalogURIs: serviceURI + "/static/mobile/MobilityDemoService.json"
+                    },
+                    jsdosession,
+                    jsdo,
+                    promise;
+
+                // create a new session object
+                jsdosession = new progress.data.JSDOSession(jsdoSettings);
+                promise = jsdosession.login("", "");
+                    
+                promise.done(function(jsdosession, result, info){
+                    jsdosession.addCatalog(jsdoSettings.catalogURIs)
+                        .done(function(jsdosession, result, details){
+                            // create a JSDO
+                            jsdo = new progress.data.JSDO({ name: 'dsCustomer' });
+                            //jsdo.subscribe('AfterFill', onAfterFillCustomers, this);
+                            
+                            // calling fill reads from the remote OE server
+                            jsdo.fill().done(onAfterFillCustomers);
+                        })
+                        .fail(function(jsdosession, result, details){
+                            alert("Error while executing addCatalog().");
+                    });
+                });
+                promise.fail(function(jsdosession, result, info){
+                    alert("Error while executing login().");      
+                });        
+            }
+            catch (e) {
+                alert("Error instantiating objects: " + e);
+            }        
+        }());
+    </script>
+</body>
+</html>

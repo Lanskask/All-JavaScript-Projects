@@ -1,0 +1,12 @@
+<h1> Ngx-Datatable: </h1>
+
+<div>
+  <ngx-datatable class="material" [rows]="rows" [columns]="columns">
+  </ngx-datatable>
+</div>
+ 
+<ul>
+  <li *ngFor="let item of orders">
+    {{item.BillToID}}
+  </li>
+</ul> 

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JSDO / Kendo UI Grid Example</title>
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.default.min.css" />
+
+    <script src="http://cdn.kendostatic.com/2015.1.429/js/jquery.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2015.1.429/js/kendo.all.min.js"></script>
+    
+    <script src="http://oemobiledemo.progress.com/jsdo/progress.all.4.0.min.js"></script>	    
+    
+    <style>
+        html { 
+            font-size: 12px; 
+            font-family: Arial, Helvetica, sans-serif; 
+        }
+    </style>
+    
+</head>
+<body>
+  <div id="example">
+		<div id="grid"></div>
+  </div>
+  <script>
+    $(function() {
+
+        function createGrid() {
+
+            $('#grid').kendoGrid({
+                // define transports as the class functions
+                dataSource: {
+                    type: "jsdo",
+                    transport: {
+                        jsdo: "Customer"
+                    },
+                    error: function(e) {
+                    }
+                },
+                height: 400,
+                groupable: true,
+                reorderable: true,
+                resizable: true,	
+                sortable: true,
+                pageable: {
+                    refresh: true,
+                    pageSizes: true,
+                    pageSize: 10,							
+                    buttonCount: 5
+                },				
+                editable: 'inline',
+                toolbar: ['create'],
+                columns: [
+                    { field: 'CustNum', title: 'Cust Num', width: 100 },
+                    { field: 'Name' },
+                    { field: 'State' },
+                    { field: 'Country' },
+                    { command: ['edit', 'destroy'], title: '&nbsp;', width: '250px' }
+                ]		
+            });
+
+        }
+
+        try {
+            var serviceURI = "http://oemobiledemo.progress.com/CustomerService",
+                jsdoSettings = {
+                    serviceURI: serviceURI,
+                    catalogURIs: serviceURI + "/static/mobile/CustomerService.json"
+                },
+                jsdosession,
+                promise;
+
+            // create a new session object
+            jsdosession = new progress.data.JSDOSession(jsdoSettings);
+            promise = jsdosession.login("", "");
+                
+            promise.done(function(jsdosession, result, info){
+                jsdosession.addCatalog(jsdoSettings.catalogURIs)
+                    .done(function(jsdosession, result, details){
+                        createGrid();
+                    })
+                    .fail(function(jsdosession, result, details){
+                        alert("Error while executing addCatalog().");
+                });
+            });
+            promise.fail(function(jsdosession, result, info){
+                alert("Error while executing login().");      
+            });        
+        }
+        catch (e) {
+            alert("Error instantiating objects: " + e);
+        }
+
+    });
+  </script>
+</body>
+</html>
